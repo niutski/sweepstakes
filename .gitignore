@@ -1,0 +1,6 @@
+.idea/
+sweepr.iml
+npm-debug.log
+front/elm-stuff
+front/dist/**/*.js
+**/node_modules/

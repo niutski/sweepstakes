@@ -1,0 +1,86 @@
+[
+  {
+    "team1_id": 127,
+    "team2_id": 138,
+    "fullTimeScore1": 4,
+    "fullTimeScore2": 0,
+    "extraTimeScore1": "",
+    "extraTimeScore2": "",
+    "penaltyScore1": "",
+    "penaltyScore2": "",
+    "winner": 127,
+    "matchType": "GROUP"
+  },
+  {
+    "team1_id": 127,
+    "team2_id": 18,
+    "fullTimeScore1": 2,
+    "fullTimeScore2": 2,
+    "extraTimeScore1": "",
+    "extraTimeScore2": "",
+    "penaltyScore1": "",
+    "penaltyScore2": "",
+    "winner": 0,
+    "matchType": "GROUP"
+  },
+  {
+    "team1_id": 191,
+    "team2_id": 127,
+    "fullTimeScore1": 0,
+    "fullTimeScore2": 1,
+    "extraTimeScore1": "",
+    "extraTimeScore2": "",
+    "penaltyScore1": "",
+    "penaltyScore2": "",
+    "winner": 127,
+    "matchType": "GROUP"
+  },
+  {
+    "team1_id": 127,
+    "team2_id": 1,
+    "fullTimeScore1": 0,
+    "fullTimeScore2": 0,
+    "extraTimeScore1": 2,
+    "extraTimeScore2": 1,
+    "penaltyScore1": "",
+    "penaltyScore2": "",
+    "winner": 127,
+    "matchType": "TOP_16_FINAL"
+  },
+  {
+    "team1_id": 131,
+    "team2_id": 127,
+    "fullTimeScore1": 0,
+    "fullTimeScore2": 1,
+    "extraTimeScore1": "",
+    "extraTimeScore2": "",
+    "penaltyScore1": "",
+    "penaltyScore2": "",
+    "winner": 127,
+    "matchType": "QUARTER_FINAL"
+  },
+  {
+    "team1_id": 211,
+    "team2_id": 127,
+    "fullTimeScore1": 1,
+    "fullTimeScore2": 7,
+    "extraTimeScore1": "",
+    "extraTimeScore2": "",
+    "penaltyScore1": "",
+    "penaltyScore2": "",
+    "winner": 127,
+    "matchType": "SEMI_FINAL"
+  },
+  {
+    "team1_id": 127,
+    "team2_id": 210,
+    "fullTimeScore1": 0,
+    "fullTimeScore2": 0,
+    "extraTimeScore1": 1,
+    "extraTimeScore2": 0,
+    "penaltyScore1": "",
+    "penaltyScore2": "",
+    "winner": 127,
+    "matchType": "FINAL"
+  }
+]
