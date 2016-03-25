@@ -27,6 +27,7 @@ router.get('/teams/:teamId', function (req, res, next) {
   .then(function(data) {
     res.send(data);
   }).catch(function(error) {
+    logErrors(error, req, res, next);
     res.send("ERROR")
   });
 });
