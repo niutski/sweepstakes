@@ -1,0 +1,40 @@
+Elm.App = Elm.App || {};
+Elm.App.make = function (_elm) {
+   "use strict";
+   _elm.App = _elm.App || {};
+   if (_elm.App.values) return _elm.App.values;
+   var _U = Elm.Native.Utils.make(_elm),
+   $Api = Elm.Api.make(_elm),
+   $Basics = Elm.Basics.make(_elm),
+   $Debug = Elm.Debug.make(_elm),
+   $Effects = Elm.Effects.make(_elm),
+   $Html = Elm.Html.make(_elm),
+   $List = Elm.List.make(_elm),
+   $Maybe = Elm.Maybe.make(_elm),
+   $Model = Elm.Model.make(_elm),
+   $Result = Elm.Result.make(_elm),
+   $Signal = Elm.Signal.make(_elm),
+   $StartApp = Elm.StartApp.make(_elm),
+   $Task = Elm.Task.make(_elm),
+   $View = Elm.View.make(_elm);
+   var _op = {};
+   var getTeams = function (id) {    return $Effects.task(A2($Task.map,$Model.FetchedTeam,$Task.toResult($Api.getTeam(id))));};
+   var init = A2($Debug.log,"foo",{ctor: "_Tuple2",_0: $Api.getParticipants,_1: getTeams(function (_) {    return _.teamId;}($Api.getParticipants))});
+   var update = F2(function (action,model) {
+      var _p0 = action;
+      if (_p0.ctor === "NoOp") {
+            return {ctor: "_Tuple2",_0: model,_1: $Effects.none};
+         } else {
+            var _p1 = _p0._0;
+            if (_p1.ctor === "Ok") {
+                  return {ctor: "_Tuple2",_0: _U.update(model,{team: $Maybe.Just(_p1._0)}),_1: $Effects.none};
+               } else {
+                  return A2($Debug.log,$Basics.toString(_p1._0),{ctor: "_Tuple2",_0: model,_1: $Effects.none});
+               }
+         }
+   });
+   var app = $StartApp.start({init: init,view: $View.view,update: update,inputs: _U.list([])});
+   var main = app.html;
+   var tasks = Elm.Native.Task.make(_elm).performSignal("tasks",app.tasks);
+   return _elm.App.values = {_op: _op,update: update,getTeams: getTeams,app: app,init: init,main: main};
+};
