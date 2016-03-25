@@ -1,7 +1,5 @@
-.idea/
-sweepr.iml
 npm-debug.log
-front/elm-stuff
-front/dist/**/*.js
-**/node_modules/
+elm-stuff/
+node_modules/
 run-dev-local.sh
+save-commands.json
