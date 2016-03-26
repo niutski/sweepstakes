@@ -1,4 +1,5 @@
 require('dotenv').config();
+var cors = require('cors');
 
 var express = require('express');
 var path = require('path');
@@ -17,6 +18,11 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
+if (app.get('env') === 'development') {
+  console.log("Development environment");
+  app.use(cors({origin: true}));
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());

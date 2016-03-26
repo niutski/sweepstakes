@@ -4,3 +4,4 @@ node_modules/
 run-dev-local.sh
 save-commands.json
 .env
+/index.html

@@ -25,7 +25,15 @@ On top of that, unadjusted points are given for the following achievements:
 - Top 2 (25)
 - World Champion (35)
 
-Tech stack
-----------
-- NodeJS backend
-- Elm + Semantic-UI
+Running
+-------
+
+1. Run `npm install && gulp elm`
+1. Set your `mashapeApiKey` in the `.env` file
+1. Run `npm start`
+
+Development
+-----------
+1. To develop the Elm frontend, run the node server with the `run-dev.sh` script
+1. Run `elm-live elm/App.elm`
+1. Any changes you make to your Elm code will be live-reloaded by elm-live
