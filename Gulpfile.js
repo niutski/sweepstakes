@@ -9,7 +9,7 @@ gulp.task('elm-init', elm.init);
 gulp.task('elm', ['elm-init'], function(){
     return gulp.src('elm/App.elm')
         .pipe(elm().on('error', gulputil.log))
-        .pipe(gulp.dest('dist/scripts'));
+        .pipe(gulp.dest('elm/dist/scripts'));
 });
 
 gulp.task('watch', function (done) {
