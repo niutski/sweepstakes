@@ -24,11 +24,7 @@ getTeam : Int -> Int -> Task Http.Error Team
 getTeam id ranking =
   Http.get
     teamDecoder
-    ("http://localhost:3000/fifa/teams/" ++ (toString id) ++ "?ranking=" ++ (toString ranking))
-
-
-
--- ("/fifa/teams/" ++ (toString id))
+    ("/fifa/teams/" ++ (toString id) ++ "?ranking=" ++ (toString ranking))
 
 
 teamDecoder : Json.Decoder (Team)

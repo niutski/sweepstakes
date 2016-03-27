@@ -10961,9 +10961,7 @@ Elm.Api.make = function (_elm) {
    var getTeam = F2(function (id,ranking) {
       return A2($Http.get,
       teamDecoder,
-      A2($Basics._op["++"],
-      "http://localhost:3000/fifa/teams/",
-      A2($Basics._op["++"],$Basics.toString(id),A2($Basics._op["++"],"?ranking=",$Basics.toString(ranking)))));
+      A2($Basics._op["++"],"/fifa/teams/",A2($Basics._op["++"],$Basics.toString(id),A2($Basics._op["++"],"?ranking=",$Basics.toString(ranking)))));
    });
    var getParticipants = _U.list([{name: "Howie",teamId: 138,teamRank: 4,team: $Maybe.Nothing}
                                  ,{name: "Alex",teamId: 214,teamRank: 7,team: $Maybe.Nothing}
