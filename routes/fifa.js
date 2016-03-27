@@ -23,20 +23,12 @@ router.get('/teams/:teamId/points', function(req,res,next) {
 });
 
 router.get('/teams/:teamId', function (req, res, next) {
-  pointService.getTeamAndPoints(req.params.teamId, 1)
+  pointService.getTeamAndPoints(req.params.teamId, 1 + (req.query.ranking / 100))
   .then(function(data) {
     res.send(data);
   }).catch(function(error) {
-    logErrors(error, req, res, next);
     res.send("ERROR")
   });
 });
-
-function logErrors(err, req, res, next) {
-  console.error(err.stack);
-  next(err);
-}
-
-router.use(logErrors);
 
 module.exports = router;

@@ -20,7 +20,14 @@ update action model =
     FetchedTeam taskResult ->
       case taskResult of
         Ok team ->
-          ( { model | team = Just team }, Effects.none )
+          let
+            updateTeam participant =
+              if (.id team) == (.teamId participant) then
+                { participant | team = Just team }
+              else
+                participant
+          in
+            ( List.map updateTeam model, Effects.none )
 
         Err error ->
           Debug.log
@@ -28,12 +35,21 @@ update action model =
             ( model, Effects.none )
 
 
-getTeams : Int -> Effects Action
-getTeams id =
-  Api.getTeam id
+getTeam : Participant -> Effects Action
+getTeam participant =
+  Api.getTeam (.teamId participant) (.teamRank participant)
     |> Task.toResult
     |> Task.map FetchedTeam
     |> Effects.task
+
+
+fetchTeams : Effects Action
+fetchTeams =
+  Effects.batch
+    (List.map
+      getTeam
+      Api.getParticipants
+    )
 
 
 app : App Model
@@ -43,11 +59,9 @@ app =
 
 init : ( Model, Effects Action )
 init =
-  Debug.log
-    "foo"
-    ( Api.getParticipants
-    , (getTeams (.teamId Api.getParticipants))
-    )
+  ( Api.getParticipants
+  , fetchTeams
+  )
 
 
 main : Signal Html.Html

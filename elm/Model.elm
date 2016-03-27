@@ -9,13 +9,14 @@ type Action
 
 
 type alias Model =
-  Participant
+  List Participant
 
 
 type alias Participant =
   { name : String
   , teamId : Int
   , team : Maybe Team
+  , teamRank : Int
   }
 
 

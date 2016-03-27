@@ -1,5 +1,5 @@
 npm-debug.log
-elm-stuff/
+**/elm-stuff/
 node_modules/
 run-dev-local.sh
 save-commands.json

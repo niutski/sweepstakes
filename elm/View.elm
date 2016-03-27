@@ -1,21 +1,23 @@
 module View (..) where
 
 import Html exposing (..)
+import Html.Attributes exposing (..)
+import List
 import Model exposing (..)
 import Signal exposing (Address)
 
 
 view : Address Action -> Model -> Html
 view address model =
-  div [] [ participantToHtml model ]
+  div [] (List.map participantToHtml model)
 
 
 participantToHtml : Participant -> Html
 participantToHtml participant =
   div
     []
-    [ span [] [ text (.name participant) ]
-    , div [] [ (teamToHtml (.team participant)) ]
+    [ span [ class "participant" ] [ text (.name participant) ]
+    , div [ class "team" ] [ (teamToHtml (.team participant)) ]
     ]
 
 
@@ -23,8 +25,9 @@ teamToHtml : Maybe Team -> Html
 teamToHtml team =
   div
     []
-    [ span [] [ text (team |> toTeam |> .name) ]
-    , span [] [ text (team |> toTeam |> .points |> toString) ]
+    [ span [ class "team-name" ] [ text (team |> toTeam |> .name) ]
+    , span [] [ text " " ]
+    , span [ class "teamp-points" ] [ text (team |> toTeam |> .points |> toString) ]
     ]
 
 
