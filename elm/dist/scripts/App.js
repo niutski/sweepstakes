@@ -11002,11 +11002,15 @@ Elm.View.make = function (_elm) {
    };
    var participantToHtml = function (participant) {
       return A2($Html.div,
-      _U.list([]),
-      _U.list([A2($Html.span,_U.list([$Html$Attributes.$class("participant")]),_U.list([$Html.text(function (_) {    return _.name;}(participant))]))
-              ,A2($Html.div,_U.list([$Html$Attributes.$class("team")]),_U.list([teamToHtml(function (_) {    return _.team;}(participant))]))]));
+      _U.list([$Html$Attributes.$class("col-md-4")]),
+      _U.list([A2($Html.div,
+      _U.list([$Html$Attributes.$class("card card-info p-a-1 text-xs-center")]),
+      _U.list([A2($Html.h4,_U.list([$Html$Attributes.$class("card-title")]),_U.list([$Html.text(function (_) {    return _.name;}(participant))]))
+              ,A2($Html.div,_U.list([$Html$Attributes.$class("card-text")]),_U.list([teamToHtml(function (_) {    return _.team;}(participant))]))]))]));
    };
-   var view = F2(function (address,model) {    return A2($Html.div,_U.list([]),A2($List.map,participantToHtml,model));});
+   var view = F2(function (address,model) {
+      return A2($Html.div,_U.list([$Html$Attributes.$class("container-fluid")]),A2($List.map,participantToHtml,model));
+   });
    return _elm.View.values = {_op: _op,view: view,participantToHtml: participantToHtml,teamToHtml: teamToHtml,toTeam: toTeam};
 };
 Elm.App = Elm.App || {};

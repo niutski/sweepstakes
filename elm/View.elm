@@ -9,15 +9,18 @@ import Signal exposing (Address)
 
 view : Address Action -> Model -> Html
 view address model =
-  div [] (List.map participantToHtml model)
+  div [ class "container-fluid" ] (List.map participantToHtml model)
 
 
 participantToHtml : Participant -> Html
 participantToHtml participant =
   div
-    []
-    [ span [ class "participant" ] [ text (.name participant) ]
-    , div [ class "team" ] [ (teamToHtml (.team participant)) ]
+    [ class "col-md-4" ]
+    [ div
+        [ class "card card-info p-a-1 text-xs-center" ]
+        [ h4 [ class "card-title" ] [ text (.name participant) ]
+        , div [ class "card-text" ] [ (teamToHtml (.team participant)) ]
+        ]
     ]
 
 

@@ -13,7 +13,7 @@ gulp.task('elm', ['elm-init'], function(){
 });
 
 gulp.task('watch', function (done) {
-    watch('elm/**/*.elm', function () {
+  gulp.watch('elm/**/*.elm', function () {
         gulp.start(['elm']);
     });
 });
