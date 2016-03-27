@@ -10958,8 +10958,22 @@ Elm.Api.make = function (_elm) {
    A2($Json$Decode._op[":="],"id",$Json$Decode.$int),
    A2($Json$Decode._op[":="],"name",$Json$Decode.string),
    A2($Json$Decode._op[":="],"points",$Json$Decode.$int));
-   var getTeam = function (id) {    return A2($Http.get,teamDecoder,A2($Basics._op["++"],"http://localhost:3000/fifa/teams/",$Basics.toString(id)));};
-   var getParticipants = _U.list([{name: "Ollie",teamId: 127,teamRank: 1,team: $Maybe.Nothing},{name: "Janne",teamId: 210,teamRank: 2,team: $Maybe.Nothing}]);
+   var getTeam = F2(function (id,ranking) {
+      return A2($Http.get,
+      teamDecoder,
+      A2($Basics._op["++"],
+      "http://localhost:3000/fifa/teams/",
+      A2($Basics._op["++"],$Basics.toString(id),A2($Basics._op["++"],"?ranking=",$Basics.toString(ranking)))));
+   });
+   var getParticipants = _U.list([{name: "Howie",teamId: 138,teamRank: 4,team: $Maybe.Nothing}
+                                 ,{name: "Alex",teamId: 214,teamRank: 7,team: $Maybe.Nothing}
+                                 ,{name: "Ali",teamId: 153,teamRank: 6,team: $Maybe.Nothing}
+                                 ,{name: "Martyn",teamId: 129,teamRank: 1,team: $Maybe.Nothing}
+                                 ,{name: "Janne",teamId: 210,teamRank: 5,team: $Maybe.Nothing}
+                                 ,{name: "Mika",teamId: 134,teamRank: 9,team: $Maybe.Nothing}
+                                 ,{name: "Ollie",teamId: 127,teamRank: 2,team: $Maybe.Nothing}
+                                 ,{name: "Dan",teamId: 211,teamRank: 3,team: $Maybe.Nothing}
+                                 ,{name: "Andy",teamId: 215,teamRank: 8,team: $Maybe.Nothing}]);
    return _elm.Api.values = {_op: _op,getParticipants: getParticipants,getTeam: getTeam,teamDecoder: teamDecoder};
 };
 Elm.View = Elm.View || {};
@@ -11017,8 +11031,12 @@ Elm.App.make = function (_elm) {
    $Task = Elm.Task.make(_elm),
    $View = Elm.View.make(_elm);
    var _op = {};
-   var getTeams = function (id) {    return $Effects.task(A2($Task.map,$Model.FetchedTeam,$Task.toResult($Api.getTeam(id))));};
-   var fetchTeams = $Effects.batch(A2($List.map,getTeams,A2($List.map,function (_) {    return _.teamId;},$Api.getParticipants)));
+   var getTeam = function (participant) {
+      return $Effects.task(A2($Task.map,
+      $Model.FetchedTeam,
+      $Task.toResult(A2($Api.getTeam,function (_) {    return _.teamId;}(participant),function (_) {    return _.teamRank;}(participant)))));
+   };
+   var fetchTeams = $Effects.batch(A2($List.map,getTeam,$Api.getParticipants));
    var init = {ctor: "_Tuple2",_0: $Api.getParticipants,_1: fetchTeams};
    var update = F2(function (action,model) {
       var _p0 = action;
@@ -11041,5 +11059,5 @@ Elm.App.make = function (_elm) {
    var app = $StartApp.start({init: init,view: $View.view,update: update,inputs: _U.list([])});
    var main = app.html;
    var tasks = Elm.Native.Task.make(_elm).performSignal("tasks",app.tasks);
-   return _elm.App.values = {_op: _op,update: update,getTeams: getTeams,fetchTeams: fetchTeams,app: app,init: init,main: main};
+   return _elm.App.values = {_op: _op,update: update,getTeam: getTeam,fetchTeams: fetchTeams,app: app,init: init,main: main};
 };
