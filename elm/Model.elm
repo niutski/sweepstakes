@@ -25,3 +25,8 @@ type alias Team =
   , name : String
   , points : Int
   }
+
+
+toTeam : Maybe Team -> Team
+toTeam maybe =
+  Maybe.withDefault { name = "", id = 0, points = 0 } maybe

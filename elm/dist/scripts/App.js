@@ -10930,11 +10930,12 @@ Elm.Model.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
+   var toTeam = function (maybe) {    return A2($Maybe.withDefault,{name: "",id: 0,points: 0},maybe);};
    var Team = F3(function (a,b,c) {    return {id: a,name: b,points: c};});
    var Participant = F4(function (a,b,c,d) {    return {name: a,teamId: b,team: c,teamRank: d};});
    var FetchedTeam = function (a) {    return {ctor: "FetchedTeam",_0: a};};
    var NoOp = {ctor: "NoOp"};
-   return _elm.Model.values = {_op: _op,NoOp: NoOp,FetchedTeam: FetchedTeam,Participant: Participant,Team: Team};
+   return _elm.Model.values = {_op: _op,NoOp: NoOp,FetchedTeam: FetchedTeam,Participant: Participant,Team: Team,toTeam: toTeam};
 };
 Elm.Api = Elm.Api || {};
 Elm.Api.make = function (_elm) {
@@ -10990,28 +10991,23 @@ Elm.View.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var toTeam = function (maybe) {    return A2($Maybe.withDefault,{name: "",id: 0,points: 0},maybe);};
-   var teamToHtml = function (team) {
-      return A2($Html.div,
-      _U.list([]),
-      _U.list([A2($Html.span,_U.list([$Html$Attributes.$class("team-name")]),_U.list([$Html.text(function (_) {    return _.name;}(toTeam(team)))]))
-              ,A2($Html.span,_U.list([]),_U.list([$Html.text(" ")]))
-              ,A2($Html.span,
-              _U.list([$Html$Attributes.$class("teamp-points")]),
-              _U.list([$Html.text($Basics.toString(function (_) {    return _.points;}(toTeam(team))))]))]));
-   };
    var participantToHtml = function (participant) {
       return A2($Html.div,
-      _U.list([$Html$Attributes.$class("col-md-4")]),
+      _U.list([$Html$Attributes.$class("pure-u-1 pure-u-md-1-2 pure-u-lg-1-4")]),
       _U.list([A2($Html.div,
-      _U.list([$Html$Attributes.$class("card card-info p-a-1 text-xs-center")]),
-      _U.list([A2($Html.h4,_U.list([$Html$Attributes.$class("card-title")]),_U.list([$Html.text(function (_) {    return _.name;}(participant))]))
-              ,A2($Html.div,_U.list([$Html$Attributes.$class("card-text")]),_U.list([teamToHtml(function (_) {    return _.team;}(participant))]))]))]));
+      _U.list([$Html$Attributes.$class("participant-card")]),
+      _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("card-title")]),_U.list([$Html.text(function (_) {    return _.name;}(participant))]))
+              ,A2($Html.span,
+              _U.list([$Html$Attributes.$class("team-name")]),
+              _U.list([$Html.text(function (_) {    return _.name;}($Model.toTeam(function (_) {    return _.team;}(participant))))]))
+              ,A2($Html.span,
+              _U.list([$Html$Attributes.$class("team-points")]),
+              _U.list([$Html.text($Basics.toString(function (_) {
+                 return _.points;
+              }($Model.toTeam(function (_) {    return _.team;}(participant)))))]))]))]));
    };
-   var view = F2(function (address,model) {
-      return A2($Html.div,_U.list([$Html$Attributes.$class("container-fluid")]),A2($List.map,participantToHtml,model));
-   });
-   return _elm.View.values = {_op: _op,view: view,participantToHtml: participantToHtml,teamToHtml: teamToHtml,toTeam: toTeam};
+   var view = F2(function (address,model) {    return A2($Html.div,_U.list([$Html$Attributes.$class("pure-g")]),A2($List.map,participantToHtml,model));});
+   return _elm.View.values = {_op: _op,view: view,participantToHtml: participantToHtml};
 };
 Elm.App = Elm.App || {};
 Elm.App.make = function (_elm) {
@@ -11040,6 +11036,7 @@ Elm.App.make = function (_elm) {
    };
    var fetchTeams = $Effects.batch(A2($List.map,getTeam,$Api.getParticipants));
    var init = {ctor: "_Tuple2",_0: $Api.getParticipants,_1: fetchTeams};
+   var getPoints = function (participant) {    return function (_) {    return _.points;}($Model.toTeam(function (_) {    return _.team;}(participant)));};
    var update = F2(function (action,model) {
       var _p0 = action;
       if (_p0.ctor === "NoOp") {
@@ -11052,7 +11049,7 @@ Elm.App.make = function (_elm) {
                      return _U.eq(function (_) {    return _.id;}(_p2),function (_) {    return _.teamId;}(participant)) ? _U.update(participant,
                      {team: $Maybe.Just(_p2)}) : participant;
                   };
-                  return {ctor: "_Tuple2",_0: A2($List.map,updateTeam,model),_1: $Effects.none};
+                  return {ctor: "_Tuple2",_0: $List.reverse(A2($List.sortBy,getPoints,A2($List.map,updateTeam,model))),_1: $Effects.none};
                } else {
                   return A2($Debug.log,$Basics.toString(_p1._0),{ctor: "_Tuple2",_0: model,_1: $Effects.none});
                }
@@ -11061,5 +11058,5 @@ Elm.App.make = function (_elm) {
    var app = $StartApp.start({init: init,view: $View.view,update: update,inputs: _U.list([])});
    var main = app.html;
    var tasks = Elm.Native.Task.make(_elm).performSignal("tasks",app.tasks);
-   return _elm.App.values = {_op: _op,update: update,getTeam: getTeam,fetchTeams: fetchTeams,app: app,init: init,main: main};
+   return _elm.App.values = {_op: _op,getPoints: getPoints,update: update,getTeam: getTeam,fetchTeams: fetchTeams,app: app,init: init,main: main};
 };

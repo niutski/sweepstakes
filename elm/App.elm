@@ -9,6 +9,15 @@ import Effects
 import Task
 import Signal exposing (Signal, Mailbox, Address, send)
 import Effects exposing (Effects, Never)
+import List exposing (..)
+
+
+getPoints : Participant -> Int
+getPoints participant =
+  participant
+    |> .team
+    |> toTeam
+    |> .points
 
 
 update : Action -> Model -> ( Model, Effects Action )
@@ -27,7 +36,7 @@ update action model =
               else
                 participant
           in
-            ( List.map updateTeam model, Effects.none )
+            ( model |> map updateTeam |> sortBy getPoints |> reverse, Effects.none )
 
         Err error ->
           Debug.log
