@@ -29,8 +29,9 @@ getTeam id ranking =
 
 teamDecoder : Json.Decoder (Team)
 teamDecoder =
-  object3
+  object4
     Team
     ("id" := int)
     ("name" := string)
     ("points" := int)
+    ("code" := string)

@@ -3,6 +3,7 @@
 const _ = require('lodash');
 const statProvider = require('./fifa');
 const MatchType = require('./matchType');
+const countryCodes = require('./countrycodes');
 
 const Points = {
     WIN: 15,
@@ -17,12 +18,16 @@ const Points = {
     CHAMPION: 35
 };
 
+function getCountryCode(code) {
+  return _.lowerCase(countryCodes[code])
+}
+
 const PointService = {
     getTeamAndPoints: function (teamId, coefficient) {
       return Promise.all([statProvider.getTeams(), this.getPointsForTeam(teamId, coefficient)])
         .then(function(args) {
           let team = _.find(args[0], function(team) {return team.id == teamId; });
-          let retVal = {id : team.id, points : args[1], name: team.title, code:team.code};
+          let retVal = {id : team.id, points : args[1], name: team.title, code:getCountryCode(team.code)};
           return Promise.resolve(retVal);
         });
     },

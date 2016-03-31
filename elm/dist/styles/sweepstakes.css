@@ -6,6 +6,20 @@
   border: 1px solid black;
 }
 
+.participant-name {
+  font-size: 15pt;
+  margin-right: 1em;
+}
+
+img {
+  float: right;
+  display: block;
+}
+
 .team-name {
-  margin: 0.5em;
+  margin-right: 0.5em;
+}
+
+.team-point-table {
+  margin-top: 1em;
 }

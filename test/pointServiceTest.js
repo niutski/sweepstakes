@@ -128,7 +128,7 @@ describe('Point service', function () {
           pointService.getTeamAndPoints(127, 1.02).then(function(data) {
             console.log(data);
             expect(data.name).to.equal("Germany");
-            expect(data.code).to.equal("GER");
+            expect(data.code).to.equal("de");
             expect(data.points).to.equal(294);
             done();
           }).catch(function(err) {

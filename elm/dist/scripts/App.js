@@ -10930,8 +10930,8 @@ Elm.Model.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var toTeam = function (maybe) {    return A2($Maybe.withDefault,{name: "",id: 0,points: 0},maybe);};
-   var Team = F3(function (a,b,c) {    return {id: a,name: b,points: c};});
+   var toTeam = function (maybe) {    return A2($Maybe.withDefault,{name: "",id: 0,points: 0,code: "zz"},maybe);};
+   var Team = F4(function (a,b,c,d) {    return {id: a,name: b,points: c,code: d};});
    var Participant = F4(function (a,b,c,d) {    return {name: a,teamId: b,team: c,teamRank: d};});
    var FetchedTeam = function (a) {    return {ctor: "FetchedTeam",_0: a};};
    var NoOp = {ctor: "NoOp"};
@@ -10954,11 +10954,12 @@ Elm.Api.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm),
    $Task = Elm.Task.make(_elm);
    var _op = {};
-   var teamDecoder = A4($Json$Decode.object3,
+   var teamDecoder = A5($Json$Decode.object4,
    $Model.Team,
    A2($Json$Decode._op[":="],"id",$Json$Decode.$int),
    A2($Json$Decode._op[":="],"name",$Json$Decode.string),
-   A2($Json$Decode._op[":="],"points",$Json$Decode.$int));
+   A2($Json$Decode._op[":="],"points",$Json$Decode.$int),
+   A2($Json$Decode._op[":="],"code",$Json$Decode.string));
    var getTeam = F2(function (id,ranking) {
       return A2($Http.get,
       teamDecoder,
@@ -10991,23 +10992,44 @@ Elm.View.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
+   var matchRow = A2($Html.tr,_U.list([]),_U.list([A2($Html.td,_U.list([]),_U.list([$Html.text("X")]))]));
+   var headerRow = A2($Html.thead,_U.list([]),_U.list([A2($Html.tr,_U.list([]),_U.list([A2($Html.th,_U.list([]),_U.list([$Html.text("Opponent")]))]))]));
+   var teamPointTable = function (team) {    return A2($Html.table,_U.list([$Html$Attributes.$class("pure-table")]),_U.list([headerRow,matchRow]));};
+   var flagDiv = function (participant) {
+      return A2($Html.div,
+      _U.list([$Html$Attributes.$class(A2($Basics._op["++"],
+      "flag flag-icon flag-icon-",
+      function (_) {
+         return _.code;
+      }($Model.toTeam(function (_) {    return _.team;}(participant)))))]),
+      _U.list([]));
+   };
    var participantToHtml = function (participant) {
       return A2($Html.div,
       _U.list([$Html$Attributes.$class("pure-u-1 pure-u-md-1-2 pure-u-lg-1-4")]),
       _U.list([A2($Html.div,
       _U.list([$Html$Attributes.$class("participant-card")]),
-      _U.list([A2($Html.div,_U.list([$Html$Attributes.$class("card-title")]),_U.list([$Html.text(function (_) {    return _.name;}(participant))]))
+      _U.list([A2($Html.div,
+              _U.list([$Html$Attributes.$class("participant-name")]),
+              _U.list([$Html.text(function (_) {    return _.name;}(participant)),flagDiv(participant)]))
               ,A2($Html.span,
               _U.list([$Html$Attributes.$class("team-name")]),
               _U.list([$Html.text(function (_) {    return _.name;}($Model.toTeam(function (_) {    return _.team;}(participant))))]))
               ,A2($Html.span,
               _U.list([$Html$Attributes.$class("team-points")]),
-              _U.list([$Html.text($Basics.toString(function (_) {
-                 return _.points;
-              }($Model.toTeam(function (_) {    return _.team;}(participant)))))]))]))]));
+              _U.list([$Html.text($Basics.toString(function (_) {    return _.points;}($Model.toTeam(function (_) {    return _.team;}(participant)))))]))
+              ,A2($Html.div,
+              _U.list([$Html$Attributes.$class("team-point-table")]),
+              _U.list([teamPointTable($Model.toTeam(function (_) {    return _.team;}(participant)))]))]))]));
    };
    var view = F2(function (address,model) {    return A2($Html.div,_U.list([$Html$Attributes.$class("pure-g")]),A2($List.map,participantToHtml,model));});
-   return _elm.View.values = {_op: _op,view: view,participantToHtml: participantToHtml};
+   return _elm.View.values = {_op: _op
+                             ,view: view
+                             ,participantToHtml: participantToHtml
+                             ,flagDiv: flagDiv
+                             ,teamPointTable: teamPointTable
+                             ,headerRow: headerRow
+                             ,matchRow: matchRow};
 };
 Elm.App = Elm.App || {};
 Elm.App.make = function (_elm) {
