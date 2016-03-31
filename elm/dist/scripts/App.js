@@ -10998,7 +10998,7 @@ Elm.View.make = function (_elm) {
    var flagDiv = function (participant) {
       return A2($Html.div,
       _U.list([$Html$Attributes.$class(A2($Basics._op["++"],
-      "flag flag-icon flag-icon-",
+      "flag flag-icon-background flag-icon-",
       function (_) {
          return _.code;
       }($Model.toTeam(function (_) {    return _.team;}(participant)))))]),

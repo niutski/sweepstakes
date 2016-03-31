@@ -11,9 +11,11 @@
   margin-right: 1em;
 }
 
-img {
+.flag {
   float: right;
   display: block;
+  width: 40px;
+  height: 30px;
 }
 
 .team-name {

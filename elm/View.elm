@@ -34,7 +34,7 @@ participantToHtml participant =
 
 flagDiv : Participant -> Html
 flagDiv participant =
-  div [ class ("flag flag-icon flag-icon-" ++ (participant |> .team |> toTeam |> .code)) ] []
+  div [ class ("flag flag-icon-background flag-icon-" ++ (participant |> .team |> toTeam |> .code)) ] []
 
 
 teamPointTable : Team -> Html
