@@ -1,7 +1,6 @@
 'use strict';
 
 const _ = require('lodash');
-const statProvider = require('./fifa');
 const MatchType = require('./matchType');
 const countryCodes = require('./countrycodes');
 
@@ -18,69 +17,53 @@ const Points = {
     CHAMPION: 35
 };
 
+// TODO: own service
 function getCountryCode(code) {
   return _.lowerCase(countryCodes[code])
 }
 
-const PointService = {
-    getTeamAndPoints: function (teamId, coefficient) {
-      return Promise.all([statProvider.getTeams(), this.getPointsForTeam(teamId, coefficient)])
-        .then(function(args) {
-          let team = _.find(args[0], function(team) {return team.id == teamId; });
-          let retVal = {id : team.id, points : args[1], name: team.title, code:getCountryCode(team.code)};
-          return Promise.resolve(retVal);
-        });
-    },
+function getWinLoseDrawPoints(match, teamId) {
+    if (match.winner == 0) return Points.DRAW;
+    return match.winner == teamId ? Points.WIN : Points.LOSS;
+};
 
-    getPointsForTeam: function (teamId, coefficient) {
-        let _this = this;
-        return statProvider.getMatchesAndTeams()
-            .then(function (matches) {
-                let teamMatches = _.filter(matches, (match) => (match.team1_id == teamId || match.team2_id == teamId));
-                let points = 0;
-                _.each(teamMatches,(match) => points += _this.getMatchPointsForTeam(match, teamId));
-                points = Math.round(points * (coefficient || 1));
-                _.each(teamMatches, (match) => points += _this.getMatchBonusForTeam(match, teamId));
-                return Promise.resolve(points);
-            });
-    },
+function getMatchPointsForTeam(match, teamId) {
+    let matchPoints =  getWinLoseDrawPoints(match, teamId);
+    const isTeam1 = teamId == match.team1;
+    // Clean Sheet
+    if (match.score1 == 0 && !isTeam1) {
+        matchPoints += Points.CLEAN_SHEET;
+    }
+    if (match.score2 == 0 && isTeam1) {
+        matchPoints += Points.CLEAN_SHEET;
+    }
 
-    getWinLoseDrawPoints: function (match, teamId) {
-        if (match.winner == 0) return Points.DRAW;
-        return match.winner == teamId ? Points.WIN : Points.LOSS;
-    },
+    // Goals
+    matchPoints += (isTeam1 ? match.score1 : match.score2) * Points.GOAL;
+    return matchPoints;
+};
 
-    getMatchPointsForTeam: function (match, teamId) {
-        let matchPoints =  this.getWinLoseDrawPoints(match, teamId);
-
-        const score1 = match.fullTimeScore1 + match.extraTimeScore1;
-        const score2 = match.fullTimeScore2 + match.extraTimeScore2;
-        const isTeam1 = teamId == match.team1_id;
-        // Clean Sheet
-        if (score1 == 0 && !isTeam1) {
-            matchPoints += Points.CLEAN_SHEET;
-        }
-        if (score2 == 0 && isTeam1) {
-            matchPoints += Points.CLEAN_SHEET;
-        }
-
-        // Goals
-        matchPoints += (isTeam1 ? score1 : score2) * Points.GOAL;
-
-        return matchPoints;
-    },
-
-    getMatchBonusForTeam: function (match, teamId) {
-        let bonus = 0;
-        switch (match.matchType) {
-            case MatchType.TOP_16_FINAL:    bonus = Points.TOP_16 + (teamId == match.winner? Points.TOP_8 : 0);break;
-            case MatchType.QUARTER_FINAL:   bonus = (teamId == match.winner? Points.TOP_4 : 0);; break;
-            case MatchType.SEMI_FINAL:      bonus = (teamId == match.winner? Points.TOP_2 : 0); break;
-            case MatchType.FINAL:           bonus = (teamId == match.winner? Points.CHAMPION : 0); break;
-            default:                bonus = 0;
-        }
-        return bonus;
+function getMatchBonusForTeam(match, teamId) {
+    switch (match.matchType) {
+        case MatchType.TOP_16_FINAL:    return Points.TOP_16 + (teamId == match.winner? Points.TOP_8 : 0);
+        case MatchType.QUARTER_FINAL:   return teamId == match.winner ? Points.TOP_4 : 0;
+        case MatchType.SEMI_FINAL:      return teamId == match.winner ? Points.TOP_2 : 0;
+        case MatchType.FINAL:           return teamId == match.winner ? Points.CHAMPION : 0;
+        default:                        return 0;
     }
 };
 
-module.exports = PointService;
+function getPointsForTeam(teamId, matches, coefficient) {
+    let teamMatches = _.filter(matches, (match) => (match.team1 == teamId || match.team2 == teamId));
+    let points = 0;
+    _.each(teamMatches,(match) => points += getMatchPointsForTeam(match, teamId));
+    points = Math.round(points * (coefficient || 1));
+    _.each(teamMatches, (match) => points += getMatchBonusForTeam(match, teamId));
+    return points;
+};
+
+module.exports = {
+    getPointsForTeam: getPointsForTeam,
+    getMatchPointsForTeam: getMatchPointsForTeam,
+    getMatchBonusForTeam: getMatchBonusForTeam
+};

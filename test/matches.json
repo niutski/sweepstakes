@@ -1,0 +1,1568 @@
+{
+  "_links": {
+    "self": {
+      "href": "http://api.football-data.org/v1/soccerseasons/406/fixtures"
+    },
+    "soccerseason": {
+      "href": "http://api.football-data.org/v1/soccerseasons/406"
+    }
+  },
+  "count": 64,
+  "fixtures": [{
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149479"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/764"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/799"
+      }
+    },
+    "date": "2014-06-11T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Brazil",
+    "awayTeamName": "Croatia",
+    "result": {
+      "goalsHomeTeam": 3,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149485"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/760"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/756"
+      }
+    },
+    "date": "2014-06-12T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Spain",
+    "awayTeamName": "Netherlands",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 5
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149484"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/767"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/779"
+      }
+    },
+    "date": "2014-06-12T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Chile",
+    "awayTeamName": "Australia",
+    "result": {
+      "goalsHomeTeam": 3,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149478"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/769"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/781"
+      }
+    },
+    "date": "2014-06-12T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Mexico",
+    "awayTeamName": "Cameroon",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149489"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/818"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/775"
+      }
+    },
+    "date": "2014-06-13T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Colombia",
+    "awayTeamName": "Greece",
+    "result": {
+      "goalsHomeTeam": 3,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149494"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/770"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/784"
+      }
+    },
+    "date": "2014-06-13T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "England",
+    "awayTeamName": "Italy",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 2
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149495"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/758"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/793"
+      }
+    },
+    "date": "2014-06-13T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Uruguay",
+    "awayTeamName": "Costa Rica",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 3
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149488"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/787"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/766"
+      }
+    },
+    "date": "2014-06-14T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Ivory Coast",
+    "awayTeamName": "Japan",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149521"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/762"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/1060"
+      }
+    },
+    "date": "2014-06-14T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Argentina",
+    "awayTeamName": "Bosnia-Herzegovina",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149501"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/788"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/791"
+      }
+    },
+    "date": "2014-06-14T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Switzerland",
+    "awayTeamName": "Ecuador",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149500"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/773"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/789"
+      }
+    },
+    "date": "2014-06-14T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "France",
+    "awayTeamName": "Honduras",
+    "result": {
+      "goalsHomeTeam": 3,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149509"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/763"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/771"
+      }
+    },
+    "date": "2014-06-15T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Ghana",
+    "awayTeamName": "United States",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 2
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149504"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/595"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/776"
+      }
+    },
+    "date": "2014-06-15T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "CD Mirandes",
+    "awayTeamName": "Nigeria",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149510"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/759"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/765"
+      }
+    },
+    "date": "2014-06-15T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Germany",
+    "awayTeamName": "Portugal",
+    "result": {
+      "goalsHomeTeam": 4,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149515"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/808"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/772"
+      }
+    },
+    "date": "2014-06-16T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Russia",
+    "awayTeamName": "Korea Republic",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149516"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/805"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/778"
+      }
+    },
+    "date": "2014-06-16T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 1,
+    "homeTeamName": "Belgium",
+    "awayTeamName": "Algeria",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149477"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/764"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/769"
+      }
+    },
+    "date": "2014-06-16T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Brazil",
+    "awayTeamName": "Mexico",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149476"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/781"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/799"
+      }
+    },
+    "date": "2014-06-17T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Cameroon",
+    "awayTeamName": "Croatia",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 4
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149482"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/760"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/767"
+      }
+    },
+    "date": "2014-06-17T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Spain",
+    "awayTeamName": "Chile",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 2
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149483"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/779"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/756"
+      }
+    },
+    "date": "2014-06-17T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Australia",
+    "awayTeamName": "Netherlands",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 3
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149518"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/818"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/787"
+      }
+    },
+    "date": "2014-06-18T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Colombia",
+    "awayTeamName": "Ivory Coast",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149487"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/766"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/775"
+      }
+    },
+    "date": "2014-06-18T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Japan",
+    "awayTeamName": "Greece",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149493"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/758"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/770"
+      }
+    },
+    "date": "2014-06-18T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Uruguay",
+    "awayTeamName": "England",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149499"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/788"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/773"
+      }
+    },
+    "date": "2014-06-19T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Switzerland",
+    "awayTeamName": "France",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 5
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149498"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/789"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/791"
+      }
+    },
+    "date": "2014-06-19T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Honduras",
+    "awayTeamName": "Ecuador",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 2
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149492"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/784"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/793"
+      }
+    },
+    "date": "2014-06-19T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Italy",
+    "awayTeamName": "Costa Rica",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149508"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/759"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/763"
+      }
+    },
+    "date": "2014-06-20T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Germany",
+    "awayTeamName": "Ghana",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 2
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149503"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/762"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/595"
+      }
+    },
+    "date": "2014-06-20T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Argentina",
+    "awayTeamName": "CD Mirandes",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149520"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/776"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/1060"
+      }
+    },
+    "date": "2014-06-20T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Nigeria",
+    "awayTeamName": "Bosnia-Herzegovina",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149514"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/805"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/808"
+      }
+    },
+    "date": "2014-06-21T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Belgium",
+    "awayTeamName": "Russia",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149513"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/772"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/778"
+      }
+    },
+    "date": "2014-06-21T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "Korea Republic",
+    "awayTeamName": "Algeria",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 4
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149507"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/771"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/765"
+      }
+    },
+    "date": "2014-06-21T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 2,
+    "homeTeamName": "United States",
+    "awayTeamName": "Portugal",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 2
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149481"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/756"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/767"
+      }
+    },
+    "date": "2014-06-22T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Netherlands",
+    "awayTeamName": "Chile",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149480"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/779"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/760"
+      }
+    },
+    "date": "2014-06-22T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Australia",
+    "awayTeamName": "Spain",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 3
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149475"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/799"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/769"
+      }
+    },
+    "date": "2014-06-22T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Croatia",
+    "awayTeamName": "Mexico",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 3
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149474"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/781"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/764"
+      }
+    },
+    "date": "2014-06-22T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Cameroon",
+    "awayTeamName": "Brazil",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 4
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149486"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/766"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/818"
+      }
+    },
+    "date": "2014-06-23T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Japan",
+    "awayTeamName": "Colombia",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 4
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149491"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/784"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/758"
+      }
+    },
+    "date": "2014-06-23T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Italy",
+    "awayTeamName": "Uruguay",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149517"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/775"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/787"
+      }
+    },
+    "date": "2014-06-23T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Greece",
+    "awayTeamName": "Ivory Coast",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149490"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/793"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/770"
+      }
+    },
+    "date": "2014-06-23T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Costa Rica",
+    "awayTeamName": "England",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149502"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/776"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/762"
+      }
+    },
+    "date": "2014-06-24T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Nigeria",
+    "awayTeamName": "Argentina",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 3
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149519"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/1060"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/595"
+      }
+    },
+    "date": "2014-06-24T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Bosnia-Herzegovina",
+    "awayTeamName": "CD Mirandes",
+    "result": {
+      "goalsHomeTeam": 3,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149497"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/789"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/788"
+      }
+    },
+    "date": "2014-06-24T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Honduras",
+    "awayTeamName": "Switzerland",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 3
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149496"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/791"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/773"
+      }
+    },
+    "date": "2014-06-24T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Ecuador",
+    "awayTeamName": "France",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149512"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/772"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/805"
+      }
+    },
+    "date": "2014-06-25T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Korea Republic",
+    "awayTeamName": "Belgium",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149511"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/778"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/808"
+      }
+    },
+    "date": "2014-06-25T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Algeria",
+    "awayTeamName": "Russia",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149506"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/771"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/759"
+      }
+    },
+    "date": "2014-06-25T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "United States",
+    "awayTeamName": "Germany",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149505"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/765"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/763"
+      }
+    },
+    "date": "2014-06-25T22:00:00Z",
+    "status": "FINISHED",
+    "matchday": 3,
+    "homeTeamName": "Portugal",
+    "awayTeamName": "Ghana",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149473"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/764"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/767"
+      }
+    },
+    "date": "2014-06-28T16:00:00Z",
+    "status": "FINISHED",
+    "matchday": 4,
+    "homeTeamName": "Brazil",
+    "awayTeamName": "Chile",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149472"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/818"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/758"
+      }
+    },
+    "date": "2014-06-28T20:00:00Z",
+    "status": "FINISHED",
+    "matchday": 4,
+    "homeTeamName": "Colombia",
+    "awayTeamName": "Uruguay",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149471"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/756"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/769"
+      }
+    },
+    "date": "2014-06-29T16:00:00Z",
+    "status": "FINISHED",
+    "matchday": 4,
+    "homeTeamName": "Netherlands",
+    "awayTeamName": "Mexico",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149470"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/793"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/775"
+      }
+    },
+    "date": "2014-06-29T20:00:00Z",
+    "status": "FINISHED",
+    "matchday": 4,
+    "homeTeamName": "Costa Rica",
+    "awayTeamName": "Greece",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149469"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/773"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/776"
+      }
+    },
+    "date": "2014-06-30T16:00:00Z",
+    "status": "FINISHED",
+    "matchday": 4,
+    "homeTeamName": "France",
+    "awayTeamName": "Nigeria",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149468"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/759"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/778"
+      }
+    },
+    "date": "2014-06-30T20:00:00Z",
+    "status": "FINISHED",
+    "matchday": 4,
+    "homeTeamName": "Germany",
+    "awayTeamName": "Algeria",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149467"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/762"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/788"
+      }
+    },
+    "date": "2014-07-01T16:00:00Z",
+    "status": "FINISHED",
+    "matchday": 4,
+    "homeTeamName": "Argentina",
+    "awayTeamName": "Switzerland",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149466"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/805"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/771"
+      }
+    },
+    "date": "2014-07-01T20:00:00Z",
+    "status": "FINISHED",
+    "matchday": 4,
+    "homeTeamName": "Belgium",
+    "awayTeamName": "United States",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149465"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/773"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/759"
+      }
+    },
+    "date": "2014-07-04T16:00:00Z",
+    "status": "FINISHED",
+    "matchday": 5,
+    "homeTeamName": "France",
+    "awayTeamName": "Germany",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149464"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/764"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/818"
+      }
+    },
+    "date": "2014-07-04T16:00:00Z",
+    "status": "FINISHED",
+    "matchday": 5,
+    "homeTeamName": "Brazil",
+    "awayTeamName": "Colombia",
+    "result": {
+      "goalsHomeTeam": 2,
+      "goalsAwayTeam": 1
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149463"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/762"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/805"
+      }
+    },
+    "date": "2014-07-05T16:00:00Z",
+    "status": "FINISHED",
+    "matchday": 5,
+    "homeTeamName": "Argentina",
+    "awayTeamName": "Belgium",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149462"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/756"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/793"
+      }
+    },
+    "date": "2014-07-05T20:00:00Z",
+    "status": "FINISHED",
+    "matchday": 5,
+    "homeTeamName": "Netherlands",
+    "awayTeamName": "Costa Rica",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 0
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149461"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/764"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/759"
+      }
+    },
+    "date": "2014-07-08T20:00:00Z",
+    "status": "FINISHED",
+    "matchday": 6,
+    "homeTeamName": "Brazil",
+    "awayTeamName": "Germany",
+    "result": {
+      "goalsHomeTeam": 1,
+      "goalsAwayTeam": 7
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149460"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/756"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/762"
+      }
+    },
+    "date": "2014-07-09T20:00:00Z",
+    "status": "FINISHED",
+    "matchday": 6,
+    "homeTeamName": "Netherlands",
+    "awayTeamName": "Argentina",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 0,
+      "halfTime": {
+        "goalsHomeTeam": 0,
+        "goalsAwayTeam": 0
+      },
+      "extraTime": {
+        "goalsHomeTeam": 0,
+        "goalsAwayTeam": 0
+      },
+      "penaltyShootout": {
+        "goalsHomeTeam": 2,
+        "goalsAwayTeam": 4
+      }
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149459"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/764"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/756"
+      }
+    },
+    "date": "2014-07-12T20:00:00Z",
+    "status": "FINISHED",
+    "matchday": 8,
+    "homeTeamName": "Brazil",
+    "awayTeamName": "Netherlands",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 3
+    }
+  }, {
+    "_links": {
+      "self": {
+        "href": "http://api.football-data.org/v1/fixtures/149458"
+      },
+      "soccerseason": {
+        "href": "http://api.football-data.org/v1/soccerseasons/406"
+      },
+      "homeTeam": {
+        "href": "http://api.football-data.org/v1/teams/759"
+      },
+      "awayTeam": {
+        "href": "http://api.football-data.org/v1/teams/762"
+      }
+    },
+    "date": "2014-07-13T19:00:00Z",
+    "status": "FINISHED",
+    "matchday": 7,
+    "homeTeamName": "Germany",
+    "awayTeamName": "Argentina",
+    "result": {
+      "goalsHomeTeam": 0,
+      "goalsAwayTeam": 0,
+      "halfTime": {
+        "goalsHomeTeam": 0,
+        "goalsAwayTeam": 0
+      },
+      "extraTime": {
+        "goalsHomeTeam": 1,
+        "goalsAwayTeam": 0
+      }
+    }
+  }]
+}

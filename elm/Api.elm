@@ -8,15 +8,15 @@ import Json.Decode as Json exposing (..)
 
 getParticipants : List Participant
 getParticipants =
-  [ { name = "Howie", teamId = 138, teamRank = 4, team = Nothing }
-  , { name = "Alex", teamId = 214, teamRank = 7, team = Nothing }
-  , { name = "Ali", teamId = 153, teamRank = 6, team = Nothing }
-  , { name = "Martyn", teamId = 129, teamRank = 1, team = Nothing }
-  , { name = "Janne", teamId = 210, teamRank = 5, team = Nothing }
-  , { name = "Mika", teamId = 134, teamRank = 9, team = Nothing }
-  , { name = "Ollie", teamId = 127, teamRank = 2, team = Nothing }
-  , { name = "Dan", teamId = 211, teamRank = 3, team = Nothing }
-  , { name = "Andy", teamId = 215, teamRank = 8, team = Nothing }
+  [ { name = "Howie", teamId = 765, teamRank = 4, team = Nothing }
+  , { name = "Alex", teamId = 758, teamRank = 7, team = Nothing }
+  , { name = "Ali", teamId = 788, teamRank = 6, team = Nothing }
+  , { name = "Martyn", teamId = 760, teamRank = 1, team = Nothing }
+  , { name = "Janne", teamId = 762, teamRank = 5, team = Nothing }
+  , { name = "Mika", teamId = 784, teamRank = 9, team = Nothing }
+  , { name = "Ollie", teamId = 759, teamRank = 2, team = Nothing }
+  , { name = "Dan", teamId = 764, teamRank = 3, team = Nothing }
+  , { name = "Andy", teamId = 818, teamRank = 8, team = Nothing }
   ]
 
 
@@ -24,7 +24,7 @@ getTeam : Int -> Int -> Task Http.Error Team
 getTeam id ranking =
   Http.get
     teamDecoder
-    ("/fifa/teams/" ++ (toString id) ++ "?ranking=" ++ (toString ranking))
+    ("/teams/" ++ (toString id) ++ "?ranking=" ++ (toString ranking))
 
 
 teamDecoder : Json.Decoder (Team)

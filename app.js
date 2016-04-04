@@ -8,7 +8,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var fifa = require('./routes/fifa');
 
 var app = express();
 
@@ -34,9 +33,7 @@ function logErrors(err, req, res, next) {
 }
 
 app.use(logErrors);
-
 app.use('/', routes);
-app.use('/fifa', fifa);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
