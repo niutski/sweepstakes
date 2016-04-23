@@ -29,9 +29,23 @@ getTeam id ranking =
 
 teamDecoder : Json.Decoder (Team)
 teamDecoder =
-  object4
+  object5
     Team
     ("id" := int)
     ("name" := string)
     ("points" := int)
     ("code" := string)
+    ("matches" := matchListDecoder)
+
+
+matchListDecoder : Json.Decoder (List Match)
+matchListDecoder =
+  list matchDecoder
+
+
+matchDecoder : Json.Decoder Match
+matchDecoder =
+  object2
+    Match
+    ("team1name" := string)
+    ("team2name" := string)

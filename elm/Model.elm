@@ -25,9 +25,16 @@ type alias Team =
   , name : String
   , points : Int
   , code : String
+  , matches : List Match
+  }
+
+
+type alias Match =
+  { homeTeam : String
+  , awayTeam : String
   }
 
 
 toTeam : Maybe Team -> Team
 toTeam maybe =
-  Maybe.withDefault { name = "", id = 0, points = 0, code = "zz" } maybe
+  Maybe.withDefault { name = "", id = 0, points = 0, code = "zz", matches = [] } maybe

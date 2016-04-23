@@ -53,8 +53,7 @@ function getMatchBonusForTeam(match, teamId) {
     }
 };
 
-function getPointsForTeam(teamId, matches, coefficient) {
-    let teamMatches = _.filter(matches, (match) => (match.team1 == teamId || match.team2 == teamId));
+function getPointsForTeam(teamId, teamMatches, coefficient) {
     let points = 0;
     _.each(teamMatches,(match) => points += getMatchPointsForTeam(match, teamId));
     points = Math.round(points * (coefficient || 1));

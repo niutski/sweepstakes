@@ -27,7 +27,7 @@ participantToHtml participant =
         , span [ class "team-points" ] [ text (participant |> .team |> toTeam |> .points |> toString) ]
         , div
             [ class "team-point-table" ]
-            [ (teamPointTable (participant |> .team |> toTeam)) ]
+            [ (matchTable (participant |> .team |> toTeam |> .matches)) ]
         ]
     ]
 
@@ -37,12 +37,12 @@ flagDiv participant =
   div [ class ("flag flag-icon-background flag-icon-" ++ (participant |> .team |> toTeam |> .code)) ] []
 
 
-teamPointTable : Team -> Html
-teamPointTable team =
+matchTable : List Match -> Html
+matchTable matches =
   table
     [ class "pure-table" ]
     [ headerRow
-    , matchRow
+    , tbody [] (List.map matchRow matches)
     ]
 
 
@@ -52,11 +52,16 @@ headerRow =
     []
     [ tr
         []
-        [ th [] [ text "Opponent" ]
+        [ th [] [ text "Home Team" ]
+        , th [] [ text "Away team" ]
         ]
     ]
 
 
-matchRow : Html
-matchRow =
-  tr [] [ td [] [ text "X" ] ]
+matchRow : Match -> Html
+matchRow match =
+  tr
+    []
+    [ td [] [ text (match |> .homeTeam) ]
+    , td [] [ text (match |> .awayTeam) ]
+    ]

@@ -10930,12 +10930,13 @@ Elm.Model.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var toTeam = function (maybe) {    return A2($Maybe.withDefault,{name: "",id: 0,points: 0,code: "zz"},maybe);};
-   var Team = F4(function (a,b,c,d) {    return {id: a,name: b,points: c,code: d};});
+   var toTeam = function (maybe) {    return A2($Maybe.withDefault,{name: "",id: 0,points: 0,code: "zz",matches: _U.list([])},maybe);};
+   var Match = F2(function (a,b) {    return {homeTeam: a,awayTeam: b};});
+   var Team = F5(function (a,b,c,d,e) {    return {id: a,name: b,points: c,code: d,matches: e};});
    var Participant = F4(function (a,b,c,d) {    return {name: a,teamId: b,team: c,teamRank: d};});
    var FetchedTeam = function (a) {    return {ctor: "FetchedTeam",_0: a};};
    var NoOp = {ctor: "NoOp"};
-   return _elm.Model.values = {_op: _op,NoOp: NoOp,FetchedTeam: FetchedTeam,Participant: Participant,Team: Team,toTeam: toTeam};
+   return _elm.Model.values = {_op: _op,NoOp: NoOp,FetchedTeam: FetchedTeam,Participant: Participant,Team: Team,Match: Match,toTeam: toTeam};
 };
 Elm.Api = Elm.Api || {};
 Elm.Api.make = function (_elm) {
@@ -10954,12 +10955,18 @@ Elm.Api.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm),
    $Task = Elm.Task.make(_elm);
    var _op = {};
-   var teamDecoder = A5($Json$Decode.object4,
+   var matchDecoder = A3($Json$Decode.object2,
+   $Model.Match,
+   A2($Json$Decode._op[":="],"team1name",$Json$Decode.string),
+   A2($Json$Decode._op[":="],"team2name",$Json$Decode.string));
+   var matchListDecoder = $Json$Decode.list(matchDecoder);
+   var teamDecoder = A6($Json$Decode.object5,
    $Model.Team,
    A2($Json$Decode._op[":="],"id",$Json$Decode.$int),
    A2($Json$Decode._op[":="],"name",$Json$Decode.string),
    A2($Json$Decode._op[":="],"points",$Json$Decode.$int),
-   A2($Json$Decode._op[":="],"code",$Json$Decode.string));
+   A2($Json$Decode._op[":="],"code",$Json$Decode.string),
+   A2($Json$Decode._op[":="],"matches",matchListDecoder));
    var getTeam = F2(function (id,ranking) {
       return A2($Http.get,
       teamDecoder,
@@ -10974,7 +10981,12 @@ Elm.Api.make = function (_elm) {
                                  ,{name: "Ollie",teamId: 759,teamRank: 2,team: $Maybe.Nothing}
                                  ,{name: "Dan",teamId: 764,teamRank: 3,team: $Maybe.Nothing}
                                  ,{name: "Andy",teamId: 818,teamRank: 8,team: $Maybe.Nothing}]);
-   return _elm.Api.values = {_op: _op,getParticipants: getParticipants,getTeam: getTeam,teamDecoder: teamDecoder};
+   return _elm.Api.values = {_op: _op
+                            ,getParticipants: getParticipants
+                            ,getTeam: getTeam
+                            ,teamDecoder: teamDecoder
+                            ,matchListDecoder: matchListDecoder
+                            ,matchDecoder: matchDecoder};
 };
 Elm.View = Elm.View || {};
 Elm.View.make = function (_elm) {
@@ -10992,9 +11004,20 @@ Elm.View.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var matchRow = A2($Html.tr,_U.list([]),_U.list([A2($Html.td,_U.list([]),_U.list([$Html.text("X")]))]));
-   var headerRow = A2($Html.thead,_U.list([]),_U.list([A2($Html.tr,_U.list([]),_U.list([A2($Html.th,_U.list([]),_U.list([$Html.text("Opponent")]))]))]));
-   var teamPointTable = function (team) {    return A2($Html.table,_U.list([$Html$Attributes.$class("pure-table")]),_U.list([headerRow,matchRow]));};
+   var matchRow = function (match) {
+      return A2($Html.tr,
+      _U.list([]),
+      _U.list([A2($Html.td,_U.list([]),_U.list([$Html.text(function (_) {    return _.homeTeam;}(match))]))
+              ,A2($Html.td,_U.list([]),_U.list([$Html.text(function (_) {    return _.awayTeam;}(match))]))]));
+   };
+   var headerRow = A2($Html.thead,
+   _U.list([]),
+   _U.list([A2($Html.tr,
+   _U.list([]),
+   _U.list([A2($Html.th,_U.list([]),_U.list([$Html.text("Home Team")])),A2($Html.th,_U.list([]),_U.list([$Html.text("Away team")]))]))]));
+   var matchTable = function (matches) {
+      return A2($Html.table,_U.list([$Html$Attributes.$class("pure-table")]),_U.list([headerRow,A2($Html.tbody,_U.list([]),A2($List.map,matchRow,matches))]));
+   };
    var flagDiv = function (participant) {
       return A2($Html.div,
       _U.list([$Html$Attributes.$class(A2($Basics._op["++"],
@@ -11020,14 +11043,14 @@ Elm.View.make = function (_elm) {
               _U.list([$Html.text($Basics.toString(function (_) {    return _.points;}($Model.toTeam(function (_) {    return _.team;}(participant)))))]))
               ,A2($Html.div,
               _U.list([$Html$Attributes.$class("team-point-table")]),
-              _U.list([teamPointTable($Model.toTeam(function (_) {    return _.team;}(participant)))]))]))]));
+              _U.list([matchTable(function (_) {    return _.matches;}($Model.toTeam(function (_) {    return _.team;}(participant))))]))]))]));
    };
    var view = F2(function (address,model) {    return A2($Html.div,_U.list([$Html$Attributes.$class("pure-g")]),A2($List.map,participantToHtml,model));});
    return _elm.View.values = {_op: _op
                              ,view: view
                              ,participantToHtml: participantToHtml
                              ,flagDiv: flagDiv
-                             ,teamPointTable: teamPointTable
+                             ,matchTable: matchTable
                              ,headerRow: headerRow
                              ,matchRow: matchRow};
 };
