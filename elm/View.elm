@@ -21,15 +21,21 @@ participantToHtml participant =
         [ div
             [ class "participant-name" ]
             [ text (.name participant)
+            , span [ class "team-points" ] [ text (participant |> .team |> toTeam |> .points |> toString) ]
             , flagDiv participant
             ]
         , span [ class "team-name" ] [ text (participant |> .team |> toTeam |> .name) ]
-        , span [ class "team-points" ] [ text (participant |> .team |> toTeam |> .points |> toString) ]
+        , rankingInfo participant
         , div
             [ class "team-point-table" ]
             [ (matchTable (participant |> .team |> toTeam |> .matches)) ]
         ]
     ]
+
+
+rankingInfo : Participant -> Html
+rankingInfo participant =
+  span [ class "team-rank" ] [ text ("(ranked " ++ (participant |> .teamRank |> toString) ++ ")") ]
 
 
 flagDiv : Participant -> Html

@@ -1,11 +1,12 @@
 module.exports = {
-    "Colombia": "CO",
-    "Brazil": "BR",
-    "Argentina": "AR",
-    "Portugal": "PT",
+    "Russia": "RU",
+    "Ukraine": "UA",
+    "Romania": "RO",
+    "Poland": "PL",
     "Italy": "IT",
     "Spain": "ES",
-    "Switzerland": "CH",
+    "Sweden": "SE",
     "Germany": "DE",
-    "Uruguay": "UY"
+    "France": "FR",
+    "Belgium": "BE"
 };

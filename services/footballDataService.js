@@ -4,7 +4,7 @@ const _ = require('lodash');
 const MatchType = require('./matchType')
 const httpGet = require('request')
   .defaults({
-    baseUrl: 'http://api.football-data.org/v1/',
+    baseUrl: 'http://api.football-data.org/v1/soccerseasons/424/',
     headers: {
       'X-Auth-Token': process.env.FOOTBALL_DATA_API_KEY,
       'accepts': 'json',
@@ -44,6 +44,7 @@ function request(url) {
 function processMatches(data) {
   return _.map(data.fixtures, function(match) {
     return {
+      played: match.status === "FINISHED",
       team1: getTeamId(match._links.homeTeam.href),
       team2: getTeamId(match._links.awayTeam.href),
       team1name: match.homeTeamName,
@@ -91,11 +92,11 @@ function findTeam(teamId) {
 
 module.exports = {
   getTeam: function(teamId) {
-    return request('soccerseasons/406/teams').then(findTeam(teamId));
+    return request('teams').then(findTeam(teamId));
   },
 
   getMatches: function() {
-    return request('soccerseasons/406/fixtures').then(processMatches);
+    return request('fixtures').then(processMatches);
   },
 
   getMatchType: getMatchType

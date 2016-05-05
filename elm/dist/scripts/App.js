@@ -10972,15 +10972,17 @@ Elm.Api.make = function (_elm) {
       teamDecoder,
       A2($Basics._op["++"],"/teams/",A2($Basics._op["++"],$Basics.toString(id),A2($Basics._op["++"],"?ranking=",$Basics.toString(ranking)))));
    });
-   var getParticipants = _U.list([{name: "Howie",teamId: 765,teamRank: 4,team: $Maybe.Nothing}
-                                 ,{name: "Alex",teamId: 758,teamRank: 7,team: $Maybe.Nothing}
-                                 ,{name: "Ali",teamId: 788,teamRank: 6,team: $Maybe.Nothing}
-                                 ,{name: "Martyn",teamId: 760,teamRank: 1,team: $Maybe.Nothing}
-                                 ,{name: "Janne",teamId: 762,teamRank: 5,team: $Maybe.Nothing}
-                                 ,{name: "Mika",teamId: 784,teamRank: 9,team: $Maybe.Nothing}
-                                 ,{name: "Ollie",teamId: 759,teamRank: 2,team: $Maybe.Nothing}
-                                 ,{name: "Dan",teamId: 764,teamRank: 3,team: $Maybe.Nothing}
-                                 ,{name: "Andy",teamId: 818,teamRank: 8,team: $Maybe.Nothing}]);
+   var getParticipants = _U.list([{name: "Lisa",teamId: 759,teamRank: 1,team: $Maybe.Nothing}
+                                 ,{name: "Howard",teamId: 760,teamRank: 2,team: $Maybe.Nothing}
+                                 ,{name: "Oliver",teamId: 805,teamRank: 5,team: $Maybe.Nothing}
+                                 ,{name: "Martyn",teamId: 808,teamRank: 9,team: $Maybe.Nothing}
+                                 ,{name: "Totman",teamId: 784,teamRank: 6,team: $Maybe.Nothing}
+                                 ,{name: "Alex",teamId: 773,teamRank: 8,team: $Maybe.Nothing}
+                                 ,{name: "Janne",teamId: 790,teamRank: 14,team: $Maybe.Nothing}
+                                 ,{name: "Mika",teamId: 792,teamRank: 16,team: $Maybe.Nothing}
+                                 ,{name: "Eero",teamId: 794,teamRank: 17,team: $Maybe.Nothing}
+                                 ,{name: "Andy",teamId: 811,teamRank: 18,team: $Maybe.Nothing}
+                                 ,{name: "Ali",teamId: 1065,teamRank: 0,team: $Maybe.Nothing}]);
    return _elm.Api.values = {_op: _op
                             ,getParticipants: getParticipants
                             ,getTeam: getTeam
@@ -11027,6 +11029,11 @@ Elm.View.make = function (_elm) {
       }($Model.toTeam(function (_) {    return _.team;}(participant)))))]),
       _U.list([]));
    };
+   var rankingInfo = function (participant) {
+      return A2($Html.span,
+      _U.list([$Html$Attributes.$class("team-rank")]),
+      _U.list([$Html.text(A2($Basics._op["++"],"(ranked ",A2($Basics._op["++"],$Basics.toString(function (_) {    return _.teamRank;}(participant)),")")))]));
+   };
    var participantToHtml = function (participant) {
       return A2($Html.div,
       _U.list([$Html$Attributes.$class("pure-u-1 pure-u-md-1-2 pure-u-lg-1-4")]),
@@ -11034,13 +11041,17 @@ Elm.View.make = function (_elm) {
       _U.list([$Html$Attributes.$class("participant-card")]),
       _U.list([A2($Html.div,
               _U.list([$Html$Attributes.$class("participant-name")]),
-              _U.list([$Html.text(function (_) {    return _.name;}(participant)),flagDiv(participant)]))
+              _U.list([$Html.text(function (_) {    return _.name;}(participant))
+                      ,A2($Html.span,
+                      _U.list([$Html$Attributes.$class("team-points")]),
+                      _U.list([$Html.text($Basics.toString(function (_) {
+                         return _.points;
+                      }($Model.toTeam(function (_) {    return _.team;}(participant)))))]))
+                      ,flagDiv(participant)]))
               ,A2($Html.span,
               _U.list([$Html$Attributes.$class("team-name")]),
               _U.list([$Html.text(function (_) {    return _.name;}($Model.toTeam(function (_) {    return _.team;}(participant))))]))
-              ,A2($Html.span,
-              _U.list([$Html$Attributes.$class("team-points")]),
-              _U.list([$Html.text($Basics.toString(function (_) {    return _.points;}($Model.toTeam(function (_) {    return _.team;}(participant)))))]))
+              ,rankingInfo(participant)
               ,A2($Html.div,
               _U.list([$Html$Attributes.$class("team-point-table")]),
               _U.list([matchTable(function (_) {    return _.matches;}($Model.toTeam(function (_) {    return _.team;}(participant))))]))]))]));
@@ -11049,6 +11060,7 @@ Elm.View.make = function (_elm) {
    return _elm.View.values = {_op: _op
                              ,view: view
                              ,participantToHtml: participantToHtml
+                             ,rankingInfo: rankingInfo
                              ,flagDiv: flagDiv
                              ,matchTable: matchTable
                              ,headerRow: headerRow

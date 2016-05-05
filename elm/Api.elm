@@ -8,15 +8,17 @@ import Json.Decode as Json exposing (..)
 
 getParticipants : List Participant
 getParticipants =
-  [ { name = "Howie", teamId = 765, teamRank = 4, team = Nothing }
-  , { name = "Alex", teamId = 758, teamRank = 7, team = Nothing }
-  , { name = "Ali", teamId = 788, teamRank = 6, team = Nothing }
-  , { name = "Martyn", teamId = 760, teamRank = 1, team = Nothing }
-  , { name = "Janne", teamId = 762, teamRank = 5, team = Nothing }
-  , { name = "Mika", teamId = 784, teamRank = 9, team = Nothing }
-  , { name = "Ollie", teamId = 759, teamRank = 2, team = Nothing }
-  , { name = "Dan", teamId = 764, teamRank = 3, team = Nothing }
-  , { name = "Andy", teamId = 818, teamRank = 8, team = Nothing }
+  [ { name = "Lisa", teamId = 759, teamRank = 1, team = Nothing }
+  , { name = "Howard", teamId = 760, teamRank = 2, team = Nothing }
+  , { name = "Oliver", teamId = 805, teamRank = 5, team = Nothing }
+  , { name = "Martyn", teamId = 808, teamRank = 9, team = Nothing }
+  , { name = "Totman", teamId = 784, teamRank = 6, team = Nothing }
+  , { name = "Alex", teamId = 773, teamRank = 8, team = Nothing }
+  , { name = "Janne", teamId = 790, teamRank = 14, team = Nothing }
+  , { name = "Mika", teamId = 792, teamRank = 16, team = Nothing }
+  , { name = "Eero", teamId = 794, teamRank = 17, team = Nothing }
+  , { name = "Andy", teamId = 811, teamRank = 18, team = Nothing }
+  , { name = "Ali", teamId = 1065, teamRank = 0, team = Nothing }
   ]
 
 

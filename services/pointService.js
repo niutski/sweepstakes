@@ -28,6 +28,7 @@ function getWinLoseDrawPoints(match, teamId) {
 };
 
 function getMatchPointsForTeam(match, teamId) {
+    if (! match.played) return 0;
     let matchPoints =  getWinLoseDrawPoints(match, teamId);
     const isTeam1 = teamId == match.team1;
     // Clean Sheet
