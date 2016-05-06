@@ -18,7 +18,7 @@ getParticipants =
   , { name = "Mika", teamId = 792, teamRank = 16, team = Nothing }
   , { name = "Eero", teamId = 794, teamRank = 17, team = Nothing }
   , { name = "Andy", teamId = 811, teamRank = 18, team = Nothing }
-  , { name = "Ali", teamId = 1065, teamRank = 0, team = Nothing }
+  , { name = "Ali", teamId = 788, teamRank = 10, team = Nothing }
   ]
 
 

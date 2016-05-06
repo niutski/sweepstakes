@@ -8,5 +8,6 @@ module.exports = {
     "Sweden": "SE",
     "Germany": "DE",
     "France": "FR",
-    "Belgium": "BE"
+    "Belgium": "BE",
+    "Switzerland", "CH"
 };

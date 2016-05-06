@@ -10982,7 +10982,7 @@ Elm.Api.make = function (_elm) {
                                  ,{name: "Mika",teamId: 792,teamRank: 16,team: $Maybe.Nothing}
                                  ,{name: "Eero",teamId: 794,teamRank: 17,team: $Maybe.Nothing}
                                  ,{name: "Andy",teamId: 811,teamRank: 18,team: $Maybe.Nothing}
-                                 ,{name: "Ali",teamId: 1065,teamRank: 0,team: $Maybe.Nothing}]);
+                                 ,{name: "Ali",teamId: 788,teamRank: 10,team: $Maybe.Nothing}]);
    return _elm.Api.values = {_op: _op
                             ,getParticipants: getParticipants
                             ,getTeam: getTeam
