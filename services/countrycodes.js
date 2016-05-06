@@ -9,5 +9,5 @@ module.exports = {
     "Germany": "DE",
     "France": "FR",
     "Belgium": "BE",
-    "Switzerland", "CH"
+    "Switzerland": "CH"
 };
