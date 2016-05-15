@@ -51,6 +51,7 @@ function processMatches(data) {
       team2name: match.awayTeamName,
       score1: match.result.extraTime ? match.result.extraTime.goalsHomeTeam : match.result.goalsHomeTeam,
       score2: match.result.extraTime ? match.result.extraTime.goalsAwayTeam : match.result.goalsAwayTeam,
+      date: match.date,
       winner: getMatchWinnerId(match),
       matchType: getMatchType(match)
     };

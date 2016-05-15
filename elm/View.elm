@@ -5,6 +5,7 @@ import Html.Attributes exposing (..)
 import List
 import Model exposing (..)
 import Signal exposing (Address)
+import Date
 
 
 view : Address Action -> Model -> Html
@@ -15,7 +16,7 @@ view address model =
 participantToHtml : Participant -> Html
 participantToHtml participant =
   div
-    [ class "pure-u-1 pure-u-md-1-2 pure-u-lg-1-4" ]
+    [ class "pure-u-1 pure-u-md-1-2 pure-u-lg-1-3" ]
     [ div
         [ class "participant-card" ]
         [ div
@@ -60,6 +61,7 @@ headerRow =
         []
         [ th [] [ text "Home Team" ]
         , th [] [ text "Away team" ]
+        , th [] [ text "Date" ]
         ]
     ]
 
@@ -70,4 +72,10 @@ matchRow match =
     []
     [ td [] [ text (match |> .homeTeam) ]
     , td [] [ text (match |> .awayTeam) ]
+    , td [] [ text (match |> .date |> dateToString) ]
     ]
+
+
+dateToString : Date.Date -> String
+dateToString date =
+  (date |> Date.day |> toString) ++ " " ++ (date |> Date.month |> toString)
