@@ -17,7 +17,6 @@ const Points = {
     CHAMPION: 35
 };
 
-// TODO: own service
 function getCountryCode(code) {
   return _.lowerCase(countryCodes[code])
 }
