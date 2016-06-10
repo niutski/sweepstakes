@@ -34,6 +34,16 @@ type alias Match =
   { homeTeam : String
   , awayTeam : String
   , date : Date.Date
+  , pointBreakdown : MatchPointBreakdown
+  }
+
+
+type alias MatchPointBreakdown =
+  { win : Maybe Int
+  , draw : Maybe Int
+  , cleanSheet : Maybe Int
+  , goals : Maybe Int
+  , bonus : Maybe Int
   }
 
 

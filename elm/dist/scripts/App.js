@@ -11152,12 +11152,20 @@ Elm.Model.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
    var toTeam = function (maybe) {    return A2($Maybe.withDefault,{name: "",id: 0,points: 0,code: "zz",matches: _U.list([])},maybe);};
-   var Match = F3(function (a,b,c) {    return {homeTeam: a,awayTeam: b,date: c};});
+   var MatchPointBreakdown = F5(function (a,b,c,d,e) {    return {win: a,draw: b,cleanSheet: c,goals: d,bonus: e};});
+   var Match = F4(function (a,b,c,d) {    return {homeTeam: a,awayTeam: b,date: c,pointBreakdown: d};});
    var Team = F5(function (a,b,c,d,e) {    return {id: a,name: b,points: c,code: d,matches: e};});
    var Participant = F4(function (a,b,c,d) {    return {name: a,teamId: b,team: c,teamRank: d};});
    var FetchedTeam = function (a) {    return {ctor: "FetchedTeam",_0: a};};
    var NoOp = {ctor: "NoOp"};
-   return _elm.Model.values = {_op: _op,NoOp: NoOp,FetchedTeam: FetchedTeam,Participant: Participant,Team: Team,Match: Match,toTeam: toTeam};
+   return _elm.Model.values = {_op: _op
+                              ,NoOp: NoOp
+                              ,FetchedTeam: FetchedTeam
+                              ,Participant: Participant
+                              ,Team: Team
+                              ,Match: Match
+                              ,MatchPointBreakdown: MatchPointBreakdown
+                              ,toTeam: toTeam};
 };
 Elm.Api = Elm.Api || {};
 Elm.Api.make = function (_elm) {
@@ -11177,11 +11185,19 @@ Elm.Api.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm),
    $Task = Elm.Task.make(_elm);
    var _op = {};
-   var matchDecoder = A4($Json$Decode.object3,
+   var pointBreakdownDecoder = A6($Json$Decode.object5,
+   $Model.MatchPointBreakdown,
+   A2($Json$Decode._op[":="],"win",$Json$Decode.maybe($Json$Decode.$int)),
+   A2($Json$Decode._op[":="],"draw",$Json$Decode.maybe($Json$Decode.$int)),
+   A2($Json$Decode._op[":="],"cleanSheet",$Json$Decode.maybe($Json$Decode.$int)),
+   A2($Json$Decode._op[":="],"goals",$Json$Decode.maybe($Json$Decode.$int)),
+   A2($Json$Decode._op[":="],"bonus",$Json$Decode.maybe($Json$Decode.$int)));
+   var matchDecoder = A5($Json$Decode.object4,
    $Model.Match,
    A2($Json$Decode._op[":="],"team1name",$Json$Decode.string),
    A2($Json$Decode._op[":="],"team2name",$Json$Decode.string),
-   A2($Json$Decode._op[":="],"date",$Json$Decode$Extra.date));
+   A2($Json$Decode._op[":="],"date",$Json$Decode$Extra.date),
+   A2($Json$Decode._op[":="],"pointBreakdown",pointBreakdownDecoder));
    var matchListDecoder = $Json$Decode.list(matchDecoder);
    var teamDecoder = A6($Json$Decode.object5,
    $Model.Team,
@@ -11211,7 +11227,8 @@ Elm.Api.make = function (_elm) {
                             ,getTeam: getTeam
                             ,teamDecoder: teamDecoder
                             ,matchListDecoder: matchListDecoder
-                            ,matchDecoder: matchDecoder};
+                            ,matchDecoder: matchDecoder
+                            ,pointBreakdownDecoder: pointBreakdownDecoder};
 };
 Elm.View = Elm.View || {};
 Elm.View.make = function (_elm) {
@@ -11220,7 +11237,6 @@ Elm.View.make = function (_elm) {
    if (_elm.View.values) return _elm.View.values;
    var _U = Elm.Native.Utils.make(_elm),
    $Basics = Elm.Basics.make(_elm),
-   $Date = Elm.Date.make(_elm),
    $Debug = Elm.Debug.make(_elm),
    $Html = Elm.Html.make(_elm),
    $Html$Attributes = Elm.Html.Attributes.make(_elm),
@@ -11230,23 +11246,39 @@ Elm.View.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var dateToString = function (date) {
-      return A2($Basics._op["++"],$Basics.toString($Date.day(date)),A2($Basics._op["++"]," ",$Basics.toString($Date.month(date))));
-   };
+   var maybeIntToString = function (m) {    var _p0 = m;if (_p0.ctor === "Just") {    return $Basics.toString(_p0._0);} else {    return "";}};
    var matchRow = function (match) {
       return A2($Html.tr,
       _U.list([]),
       _U.list([A2($Html.td,_U.list([]),_U.list([$Html.text(function (_) {    return _.homeTeam;}(match))]))
               ,A2($Html.td,_U.list([]),_U.list([$Html.text(function (_) {    return _.awayTeam;}(match))]))
-              ,A2($Html.td,_U.list([]),_U.list([$Html.text(dateToString(function (_) {    return _.date;}(match)))]))]));
+              ,A2($Html.td,
+              _U.list([]),
+              _U.list([$Html.text(maybeIntToString(function (_) {    return _.win;}(function (_) {    return _.pointBreakdown;}(match))))]))
+              ,A2($Html.td,
+              _U.list([]),
+              _U.list([$Html.text(maybeIntToString(function (_) {    return _.draw;}(function (_) {    return _.pointBreakdown;}(match))))]))
+              ,A2($Html.td,
+              _U.list([]),
+              _U.list([$Html.text(maybeIntToString(function (_) {    return _.goals;}(function (_) {    return _.pointBreakdown;}(match))))]))
+              ,A2($Html.td,
+              _U.list([]),
+              _U.list([$Html.text(maybeIntToString(function (_) {    return _.cleanSheet;}(function (_) {    return _.pointBreakdown;}(match))))]))
+              ,A2($Html.td,
+              _U.list([]),
+              _U.list([$Html.text(maybeIntToString(function (_) {    return _.bonus;}(function (_) {    return _.pointBreakdown;}(match))))]))]));
    };
    var headerRow = A2($Html.thead,
    _U.list([]),
    _U.list([A2($Html.tr,
    _U.list([]),
-   _U.list([A2($Html.th,_U.list([]),_U.list([$Html.text("Home Team")]))
-           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Away team")]))
-           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Date")]))]))]));
+   _U.list([A2($Html.th,_U.list([]),_U.list([$Html.text("Home")]))
+           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Away")]))
+           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Win")]))
+           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Draw")]))
+           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Goals")]))
+           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Clean sheet")]))
+           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Bonus")]))]))]));
    var matchTable = function (matches) {
       return A2($Html.table,_U.list([$Html$Attributes.$class("pure-table")]),_U.list([headerRow,A2($Html.tbody,_U.list([]),A2($List.map,matchRow,matches))]));
    };
@@ -11266,7 +11298,7 @@ Elm.View.make = function (_elm) {
    };
    var participantToHtml = function (participant) {
       return A2($Html.div,
-      _U.list([$Html$Attributes.$class("pure-u-1 pure-u-md-1-2 pure-u-lg-1-3")]),
+      _U.list([$Html$Attributes.$class("pure-u-1 pure-u-md-1 pure-u-lg-1-2")]),
       _U.list([A2($Html.div,
       _U.list([$Html$Attributes.$class("participant-card")]),
       _U.list([A2($Html.div,
@@ -11295,7 +11327,7 @@ Elm.View.make = function (_elm) {
                              ,matchTable: matchTable
                              ,headerRow: headerRow
                              ,matchRow: matchRow
-                             ,dateToString: dateToString};
+                             ,maybeIntToString: maybeIntToString};
 };
 Elm.App = Elm.App || {};
 Elm.App.make = function (_elm) {

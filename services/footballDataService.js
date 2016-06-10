@@ -44,7 +44,7 @@ function request(url) {
 function processMatches(data) {
   return _.map(data.fixtures, function(match) {
     return {
-      played: match.status === "FINISHED",
+      status: match.status,
       team1: getTeamId(match._links.homeTeam.href),
       team2: getTeamId(match._links.awayTeam.href),
       team1name: match.homeTeamName,

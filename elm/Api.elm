@@ -48,8 +48,20 @@ matchListDecoder =
 
 matchDecoder : Json.Decoder Match
 matchDecoder =
-  object3
+  object4
     Match
     ("team1name" := string)
     ("team2name" := string)
     ("date" := date)
+    ("pointBreakdown" := pointBreakdownDecoder)
+
+
+pointBreakdownDecoder : Json.Decoder MatchPointBreakdown
+pointBreakdownDecoder =
+  object5
+    MatchPointBreakdown
+    ("win" := maybe int)
+    ("draw" := maybe int)
+    ("cleanSheet" := maybe int)
+    ("goals" := maybe int)
+    ("bonus" := maybe int)

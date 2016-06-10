@@ -5,7 +5,6 @@ import Html.Attributes exposing (..)
 import List
 import Model exposing (..)
 import Signal exposing (Address)
-import Date
 
 
 view : Address Action -> Model -> Html
@@ -16,7 +15,7 @@ view address model =
 participantToHtml : Participant -> Html
 participantToHtml participant =
   div
-    [ class "pure-u-1 pure-u-md-1-2 pure-u-lg-1-3" ]
+    [ class "pure-u-1 pure-u-md-1 pure-u-lg-1-2" ]
     [ div
         [ class "participant-card" ]
         [ div
@@ -59,9 +58,13 @@ headerRow =
     []
     [ tr
         []
-        [ th [] [ text "Home Team" ]
-        , th [] [ text "Away team" ]
-        , th [] [ text "Date" ]
+        [ th [] [ text "Home" ]
+        , th [] [ text "Away" ]
+        , th [] [ text "Win" ]
+        , th [] [ text "Draw" ]
+        , th [] [ text "Goals" ]
+        , th [] [ text "Clean sheet" ]
+        , th [] [ text "Bonus" ]
         ]
     ]
 
@@ -72,10 +75,19 @@ matchRow match =
     []
     [ td [] [ text (match |> .homeTeam) ]
     , td [] [ text (match |> .awayTeam) ]
-    , td [] [ text (match |> .date |> dateToString) ]
+    , td [] [ text (match |> .pointBreakdown |> .win |> maybeIntToString) ]
+    , td [] [ text (match |> .pointBreakdown |> .draw |> maybeIntToString) ]
+    , td [] [ text (match |> .pointBreakdown |> .goals |> maybeIntToString) ]
+    , td [] [ text (match |> .pointBreakdown |> .cleanSheet |> maybeIntToString) ]
+    , td [] [ text (match |> .pointBreakdown |> .bonus |> maybeIntToString) ]
     ]
 
 
-dateToString : Date.Date -> String
-dateToString date =
-  (date |> Date.day |> toString) ++ " " ++ (date |> Date.month |> toString)
+maybeIntToString : Maybe Int -> String
+maybeIntToString m =
+  case m of
+    Just x ->
+      toString x
+
+    Nothing ->
+      ""
