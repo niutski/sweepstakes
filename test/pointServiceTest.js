@@ -3,79 +3,61 @@
 const expect = require("chai").expect;
 const pointService = require('../services/pointService');
 
-describe('Point service', function () {
-    describe('calculating match points', function () {
-        var match;
+describe('Point service', function() {
+  var match;
 
-        beforeEach(function () {
-            match = {
-                team1: 1,
-                team2: 2,
-                score1: 0,
-                score2: 0,
-                winner: 0,
-                matchType: "GROUP"
-            }
-        });
+  beforeEach(function() {
+    match = {
+      team1: 1,
+      team2: 2,
+      score1: 0,
+      score2: 0,
+      winner: 0,
+      matchType: "GROUP"
+    }
+  });
 
-        it('should detect draw and clean sheet for team 1', function () {
-            expect(pointService.getMatchPointsForTeam(match, 1)).to.equal(12);
-        });
+  it('should detect draw and clean sheet for team 1', function() {
+    let breakdown = pointService.getPointBreakdownForTeam(1, match)
+    expect(breakdown.win).to.equal(0);
+    expect(breakdown.draw).to.equal(7);
+    expect(breakdown.goals).to.equal(0);
+    expect(breakdown.cleanSheet).to.equal(5);
+    expect(breakdown.bonus).to.equal(0);
+  });
 
-        it('should detect draw and clean sheet for team 2', function () {
-            expect(pointService.getMatchPointsForTeam(match, 2)).to.equal(12);
-        });
+  it('should detect win for team2 and goals', function() {
+    match.score1 = 1;
+    match.winner = 2;
+    match.score2 = 2;
 
-        it('should detect win and clean sheet for team 1', function () {
-            match.winner = 1;
-            expect(pointService.getMatchPointsForTeam(match, 1)).to.equal(20);
-        });
+    let breakdown = pointService.getPointBreakdownForTeam(2, match)
 
-        it('should detect win and clean sheet for team 2', function () {
-            match.winner = 2;
-            expect(pointService.getMatchPointsForTeam(match, 2)).to.equal(20);
-        });
+    expect(breakdown.win).to.equal(15);
+    expect(breakdown.draw).to.equal(0);
+    expect(breakdown.goals).to.equal(6);
+    expect(breakdown.cleanSheet).to.equal(0);
+    expect(breakdown.bonus).to.equal(0);
+  });
 
-        it('should detect win and clean sheet and goal for team 1', function () {
-            match.winner = 1;
-            match.score1 = 1;
-            expect(pointService.getMatchPointsForTeam(match, 1)).to.equal(23);
-        });
+  it('should detect loss', function() {
+    match.score1 = 1;
+    match.winner = 1;
 
-        it('should detect win and clean sheet and goal for team 2', function () {
-            match.winner = 2;
-            match.score2 = 1;
-            expect(pointService.getMatchPointsForTeam(match, 2)).to.equal(23);
-        });
+    let breakdown = pointService.getPointBreakdownForTeam(2, match);
 
-        it('should detect loss for team 1', function () {
-            match.winner = 2;
-            match.score2 = 1;
-            expect(pointService.getMatchPointsForTeam(match, 1)).to.equal(0);
-        });
-    });
+    expect(breakdown.win).to.equal(0);
+    expect(breakdown.draw).to.equal(0);
+    expect(breakdown.goals).to.equal(0);
+    expect(breakdown.cleanSheet).to.equal(0);
+    expect(breakdown.bonus).to.equal(0);
+  });
 
-    describe('calculating match bonus points', function () {
-        function getMatch(matchType, winner) {
-            return {
-                team1: 1,
-                team2: 2,
-                matchType: matchType,
-                winner: winner
-            };
-        }
+  it('should detect group stage pass and round of 16 win', function() {
+    match.matchType = "TOP_16_FINAL";
+    match.winner = 2;
 
-        it('group stage pass', function (done) {
-            let match = getMatch("TOP_16_FINAL", 1);
-            expect(pointService.getMatchBonusForTeam(match, 2)).to.equal(20);
-            done();
-        });
-
-        it('Round of 16 win', function (done) {
-            let match = getMatch("TOP_16_FINAL", 2);
-            expect(pointService.getMatchBonusForTeam(match, 2)).to.equal(40);
-            done();
-        });
-    });
-
+    expect(pointService.getPointBreakdownForTeam(1, match).bonus).to.equal(20);
+    expect(pointService.getPointBreakdownForTeam(2, match).bonus).to.equal(40);
+  });
 });

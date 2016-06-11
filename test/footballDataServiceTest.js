@@ -10,11 +10,11 @@ describe('Football-data', function() {
   beforeEach(function() {
     let teams =
     {teams:[
-        {_links: {self: {href: "http://api.football-data.org/v1/teams/764"}}, name: "Brazil"},
-        {_links: {self: {href: "http://api.football-data.org/v1/teams/765"}}, name: "Croatia"}
+        {_links: {self: {href: "http://api.football-data.org/v1/teams/764"}}, name: "Sweden"},
+        {_links: {self: {href: "http://api.football-data.org/v1/teams/765"}}, name: "Slovakia"}
       ]};
     api = nock('http://api.football-data.org/v1')
-      .get('/soccerseasons/406/teams')
+      .get('/soccerseasons/424/teams')
       .reply(200, JSON.stringify(teams));
   });
 
@@ -25,7 +25,7 @@ describe('Football-data', function() {
   it('should fetch teams from the API', function(done) {
     footballDataService.getTeam(764)
       .then(function(data) {
-        assert.equal(data.name, "Brazil");
+        assert.equal(data.name, "Sweden");
         done();
       }).catch(function(err) {
         done(new Error(err));

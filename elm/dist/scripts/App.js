@@ -8129,46 +8129,6 @@ Elm.Json.Decode.make = function (_elm) {
                                     ,value: value
                                     ,customDecoder: customDecoder};
 };
-Elm.Native.Date = {};
-Elm.Native.Date.make = function(localRuntime) {
-	localRuntime.Native = localRuntime.Native || {};
-	localRuntime.Native.Date = localRuntime.Native.Date || {};
-	if (localRuntime.Native.Date.values)
-	{
-		return localRuntime.Native.Date.values;
-	}
-
-	var Result = Elm.Result.make(localRuntime);
-
-	function readDate(str)
-	{
-		var date = new Date(str);
-		return isNaN(date.getTime())
-			? Result.Err('unable to parse \'' + str + '\' as a date')
-			: Result.Ok(date);
-	}
-
-	var dayTable = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-	var monthTable =
-		['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-		 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-
-	return localRuntime.Native.Date.values = {
-		read: readDate,
-		year: function(d) { return d.getFullYear(); },
-		month: function(d) { return { ctor: monthTable[d.getMonth()] }; },
-		day: function(d) { return d.getDate(); },
-		hour: function(d) { return d.getHours(); },
-		minute: function(d) { return d.getMinutes(); },
-		second: function(d) { return d.getSeconds(); },
-		millisecond: function(d) { return d.getMilliseconds(); },
-		toTime: function(d) { return d.getTime(); },
-		fromTime: function(t) { return new Date(t); },
-		dayOfWeek: function(d) { return { ctor: dayTable[d.getDay()] }; }
-	};
-};
-
 Elm.Native.Time = {};
 
 Elm.Native.Time.make = function(localRuntime)
@@ -8324,186 +8284,6 @@ Elm.Time.make = function (_elm) {
                              ,timestamp: timestamp
                              ,delay: delay
                              ,since: since};
-};
-Elm.Date = Elm.Date || {};
-Elm.Date.make = function (_elm) {
-   "use strict";
-   _elm.Date = _elm.Date || {};
-   if (_elm.Date.values) return _elm.Date.values;
-   var _U = Elm.Native.Utils.make(_elm),$Native$Date = Elm.Native.Date.make(_elm),$Result = Elm.Result.make(_elm),$Time = Elm.Time.make(_elm);
-   var _op = {};
-   var millisecond = $Native$Date.millisecond;
-   var second = $Native$Date.second;
-   var minute = $Native$Date.minute;
-   var hour = $Native$Date.hour;
-   var dayOfWeek = $Native$Date.dayOfWeek;
-   var day = $Native$Date.day;
-   var month = $Native$Date.month;
-   var year = $Native$Date.year;
-   var fromTime = $Native$Date.fromTime;
-   var toTime = $Native$Date.toTime;
-   var fromString = $Native$Date.read;
-   var Dec = {ctor: "Dec"};
-   var Nov = {ctor: "Nov"};
-   var Oct = {ctor: "Oct"};
-   var Sep = {ctor: "Sep"};
-   var Aug = {ctor: "Aug"};
-   var Jul = {ctor: "Jul"};
-   var Jun = {ctor: "Jun"};
-   var May = {ctor: "May"};
-   var Apr = {ctor: "Apr"};
-   var Mar = {ctor: "Mar"};
-   var Feb = {ctor: "Feb"};
-   var Jan = {ctor: "Jan"};
-   var Sun = {ctor: "Sun"};
-   var Sat = {ctor: "Sat"};
-   var Fri = {ctor: "Fri"};
-   var Thu = {ctor: "Thu"};
-   var Wed = {ctor: "Wed"};
-   var Tue = {ctor: "Tue"};
-   var Mon = {ctor: "Mon"};
-   var Date = {ctor: "Date"};
-   return _elm.Date.values = {_op: _op
-                             ,fromString: fromString
-                             ,toTime: toTime
-                             ,fromTime: fromTime
-                             ,year: year
-                             ,month: month
-                             ,day: day
-                             ,dayOfWeek: dayOfWeek
-                             ,hour: hour
-                             ,minute: minute
-                             ,second: second
-                             ,millisecond: millisecond
-                             ,Jan: Jan
-                             ,Feb: Feb
-                             ,Mar: Mar
-                             ,Apr: Apr
-                             ,May: May
-                             ,Jun: Jun
-                             ,Jul: Jul
-                             ,Aug: Aug
-                             ,Sep: Sep
-                             ,Oct: Oct
-                             ,Nov: Nov
-                             ,Dec: Dec
-                             ,Mon: Mon
-                             ,Tue: Tue
-                             ,Wed: Wed
-                             ,Thu: Thu
-                             ,Fri: Fri
-                             ,Sat: Sat
-                             ,Sun: Sun};
-};
-Elm.Set = Elm.Set || {};
-Elm.Set.make = function (_elm) {
-   "use strict";
-   _elm.Set = _elm.Set || {};
-   if (_elm.Set.values) return _elm.Set.values;
-   var _U = Elm.Native.Utils.make(_elm),$Basics = Elm.Basics.make(_elm),$Dict = Elm.Dict.make(_elm),$List = Elm.List.make(_elm);
-   var _op = {};
-   var foldr = F3(function (f,b,_p0) {    var _p1 = _p0;return A3($Dict.foldr,F3(function (k,_p2,b) {    return A2(f,k,b);}),b,_p1._0);});
-   var foldl = F3(function (f,b,_p3) {    var _p4 = _p3;return A3($Dict.foldl,F3(function (k,_p5,b) {    return A2(f,k,b);}),b,_p4._0);});
-   var toList = function (_p6) {    var _p7 = _p6;return $Dict.keys(_p7._0);};
-   var size = function (_p8) {    var _p9 = _p8;return $Dict.size(_p9._0);};
-   var member = F2(function (k,_p10) {    var _p11 = _p10;return A2($Dict.member,k,_p11._0);});
-   var isEmpty = function (_p12) {    var _p13 = _p12;return $Dict.isEmpty(_p13._0);};
-   var Set_elm_builtin = function (a) {    return {ctor: "Set_elm_builtin",_0: a};};
-   var empty = Set_elm_builtin($Dict.empty);
-   var singleton = function (k) {    return Set_elm_builtin(A2($Dict.singleton,k,{ctor: "_Tuple0"}));};
-   var insert = F2(function (k,_p14) {    var _p15 = _p14;return Set_elm_builtin(A3($Dict.insert,k,{ctor: "_Tuple0"},_p15._0));});
-   var fromList = function (xs) {    return A3($List.foldl,insert,empty,xs);};
-   var map = F2(function (f,s) {    return fromList(A2($List.map,f,toList(s)));});
-   var remove = F2(function (k,_p16) {    var _p17 = _p16;return Set_elm_builtin(A2($Dict.remove,k,_p17._0));});
-   var union = F2(function (_p19,_p18) {    var _p20 = _p19;var _p21 = _p18;return Set_elm_builtin(A2($Dict.union,_p20._0,_p21._0));});
-   var intersect = F2(function (_p23,_p22) {    var _p24 = _p23;var _p25 = _p22;return Set_elm_builtin(A2($Dict.intersect,_p24._0,_p25._0));});
-   var diff = F2(function (_p27,_p26) {    var _p28 = _p27;var _p29 = _p26;return Set_elm_builtin(A2($Dict.diff,_p28._0,_p29._0));});
-   var filter = F2(function (p,_p30) {    var _p31 = _p30;return Set_elm_builtin(A2($Dict.filter,F2(function (k,_p32) {    return p(k);}),_p31._0));});
-   var partition = F2(function (p,_p33) {
-      var _p34 = _p33;
-      var _p35 = A2($Dict.partition,F2(function (k,_p36) {    return p(k);}),_p34._0);
-      var p1 = _p35._0;
-      var p2 = _p35._1;
-      return {ctor: "_Tuple2",_0: Set_elm_builtin(p1),_1: Set_elm_builtin(p2)};
-   });
-   return _elm.Set.values = {_op: _op
-                            ,empty: empty
-                            ,singleton: singleton
-                            ,insert: insert
-                            ,remove: remove
-                            ,isEmpty: isEmpty
-                            ,member: member
-                            ,size: size
-                            ,foldl: foldl
-                            ,foldr: foldr
-                            ,map: map
-                            ,filter: filter
-                            ,partition: partition
-                            ,union: union
-                            ,intersect: intersect
-                            ,diff: diff
-                            ,toList: toList
-                            ,fromList: fromList};
-};
-Elm.Json = Elm.Json || {};
-Elm.Json.Decode = Elm.Json.Decode || {};
-Elm.Json.Decode.Extra = Elm.Json.Decode.Extra || {};
-Elm.Json.Decode.Extra.make = function (_elm) {
-   "use strict";
-   _elm.Json = _elm.Json || {};
-   _elm.Json.Decode = _elm.Json.Decode || {};
-   _elm.Json.Decode.Extra = _elm.Json.Decode.Extra || {};
-   if (_elm.Json.Decode.Extra.values) return _elm.Json.Decode.Extra.values;
-   var _U = Elm.Native.Utils.make(_elm),
-   $Basics = Elm.Basics.make(_elm),
-   $Date = Elm.Date.make(_elm),
-   $Debug = Elm.Debug.make(_elm),
-   $Dict = Elm.Dict.make(_elm),
-   $Json$Decode = Elm.Json.Decode.make(_elm),
-   $List = Elm.List.make(_elm),
-   $Maybe = Elm.Maybe.make(_elm),
-   $Result = Elm.Result.make(_elm),
-   $Set = Elm.Set.make(_elm),
-   $Signal = Elm.Signal.make(_elm);
-   var _op = {};
-   var lazy = function (getDecoder) {
-      return A2($Json$Decode.customDecoder,
-      $Json$Decode.value,
-      function (rawValue) {
-         return A2($Json$Decode.decodeValue,getDecoder({ctor: "_Tuple0"}),rawValue);
-      });
-   };
-   var maybeNull = function (decoder) {    return $Json$Decode.oneOf(_U.list([$Json$Decode.$null($Maybe.Nothing),A2($Json$Decode.map,$Maybe.Just,decoder)]));};
-   var withDefault = F2(function (fallback,decoder) {
-      return A2($Json$Decode.andThen,$Json$Decode.maybe(decoder),function (_p0) {    return $Json$Decode.succeed(A2($Maybe.withDefault,fallback,_p0));});
-   });
-   var decodeDictFromTuples = F2(function (keyDecoder,tuples) {
-      var _p1 = tuples;
-      if (_p1.ctor === "[]") {
-            return $Json$Decode.succeed($Dict.empty);
-         } else {
-            var _p2 = A2($Json$Decode.decodeString,keyDecoder,_p1._0._0);
-            if (_p2.ctor === "Ok") {
-                  return A2($Json$Decode.andThen,
-                  A2(decodeDictFromTuples,keyDecoder,_p1._1),
-                  function (_p3) {
-                     return $Json$Decode.succeed(A3($Dict.insert,_p2._0,_p1._0._1,_p3));
-                  });
-               } else {
-                  return $Json$Decode.fail(_p2._0);
-               }
-         }
-   });
-   var dict2 = F2(function (keyDecoder,valueDecoder) {
-      return A2($Json$Decode.andThen,$Json$Decode.dict(valueDecoder),function (_p4) {    return A2(decodeDictFromTuples,keyDecoder,$Dict.toList(_p4));});
-   });
-   var set = function (decoder) {
-      return A2($Json$Decode.andThen,$Json$Decode.list(decoder),function (_p5) {    return $Json$Decode.succeed($Set.fromList(_p5));});
-   };
-   var date = A2($Json$Decode.customDecoder,$Json$Decode.string,$Date.fromString);
-   var apply = F2(function (f,aDecoder) {    return A2($Json$Decode.andThen,f,function (f$) {    return A2($Json$Decode.map,f$,aDecoder);});});
-   _op["|:"] = apply;
-   return _elm.Json.Decode.Extra.values = {_op: _op,date: date,apply: apply,set: set,dict2: dict2,withDefault: withDefault,maybeNull: maybeNull,lazy: lazy};
 };
 Elm.Native.Effects = {};
 Elm.Native.Effects.make = function(localRuntime) {
@@ -11143,7 +10923,6 @@ Elm.Model.make = function (_elm) {
    if (_elm.Model.values) return _elm.Model.values;
    var _U = Elm.Native.Utils.make(_elm),
    $Basics = Elm.Basics.make(_elm),
-   $Date = Elm.Date.make(_elm),
    $Debug = Elm.Debug.make(_elm),
    $Http = Elm.Http.make(_elm),
    $List = Elm.List.make(_elm),
@@ -11153,7 +10932,7 @@ Elm.Model.make = function (_elm) {
    var _op = {};
    var toTeam = function (maybe) {    return A2($Maybe.withDefault,{name: "",id: 0,points: 0,code: "zz",matches: _U.list([])},maybe);};
    var MatchPointBreakdown = F5(function (a,b,c,d,e) {    return {win: a,draw: b,cleanSheet: c,goals: d,bonus: e};});
-   var Match = F4(function (a,b,c,d) {    return {homeTeam: a,awayTeam: b,date: c,pointBreakdown: d};});
+   var Match = F5(function (a,b,c,d,e) {    return {homeTeam: a,awayTeam: b,scoreHome: c,scoreAway: d,pointBreakdown: e};});
    var Team = F5(function (a,b,c,d,e) {    return {id: a,name: b,points: c,code: d,matches: e};});
    var Participant = F4(function (a,b,c,d) {    return {name: a,teamId: b,team: c,teamRank: d};});
    var FetchedTeam = function (a) {    return {ctor: "FetchedTeam",_0: a};};
@@ -11177,7 +10956,6 @@ Elm.Api.make = function (_elm) {
    $Debug = Elm.Debug.make(_elm),
    $Http = Elm.Http.make(_elm),
    $Json$Decode = Elm.Json.Decode.make(_elm),
-   $Json$Decode$Extra = Elm.Json.Decode.Extra.make(_elm),
    $List = Elm.List.make(_elm),
    $Maybe = Elm.Maybe.make(_elm),
    $Model = Elm.Model.make(_elm),
@@ -11192,11 +10970,12 @@ Elm.Api.make = function (_elm) {
    A2($Json$Decode._op[":="],"cleanSheet",$Json$Decode.maybe($Json$Decode.$int)),
    A2($Json$Decode._op[":="],"goals",$Json$Decode.maybe($Json$Decode.$int)),
    A2($Json$Decode._op[":="],"bonus",$Json$Decode.maybe($Json$Decode.$int)));
-   var matchDecoder = A5($Json$Decode.object4,
+   var matchDecoder = A6($Json$Decode.object5,
    $Model.Match,
    A2($Json$Decode._op[":="],"team1name",$Json$Decode.string),
    A2($Json$Decode._op[":="],"team2name",$Json$Decode.string),
-   A2($Json$Decode._op[":="],"date",$Json$Decode$Extra.date),
+   A2($Json$Decode._op[":="],"score1",$Json$Decode.maybe($Json$Decode.$int)),
+   A2($Json$Decode._op[":="],"score2",$Json$Decode.maybe($Json$Decode.$int)),
    A2($Json$Decode._op[":="],"pointBreakdown",pointBreakdownDecoder));
    var matchListDecoder = $Json$Decode.list(matchDecoder);
    var teamDecoder = A6($Json$Decode.object5,
@@ -11247,17 +11026,35 @@ Elm.View.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
    var maybeIntToString = function (m) {    var _p0 = m;if (_p0.ctor === "Just") {    return $Basics.toString(_p0._0);} else {    return "";}};
+   var winOrDrawPoints = function (match) {
+      var _p1 = function (_) {    return _.win;}(function (_) {    return _.pointBreakdown;}(match));
+      if (_p1.ctor === "Just") {
+            return $Basics.toString(_p1._0);
+         } else {
+            var _p2 = function (_) {    return _.draw;}(function (_) {    return _.pointBreakdown;}(match));
+            if (_p2.ctor === "Just") {
+                  return $Basics.toString(_p2._0);
+               } else {
+                  return "0";
+               }
+         }
+   };
    var matchRow = function (match) {
       return A2($Html.tr,
       _U.list([]),
-      _U.list([A2($Html.td,_U.list([]),_U.list([$Html.text(function (_) {    return _.homeTeam;}(match))]))
-              ,A2($Html.td,_U.list([]),_U.list([$Html.text(function (_) {    return _.awayTeam;}(match))]))
+      _U.list([A2($Html.th,
+              _U.list([]),
+              _U.list([$Html.text(A2($Basics._op["++"],
+              function (_) {
+                 return _.homeTeam;
+              }(match),
+              A2($Basics._op["++"]," - ",function (_) {    return _.awayTeam;}(match))))]))
               ,A2($Html.td,
               _U.list([]),
-              _U.list([$Html.text(maybeIntToString(function (_) {    return _.win;}(function (_) {    return _.pointBreakdown;}(match))))]))
-              ,A2($Html.td,
-              _U.list([]),
-              _U.list([$Html.text(maybeIntToString(function (_) {    return _.draw;}(function (_) {    return _.pointBreakdown;}(match))))]))
+              _U.list([$Html.text(A2($Basics._op["++"],
+              maybeIntToString(function (_) {    return _.scoreHome;}(match)),
+              A2($Basics._op["++"],"-",maybeIntToString(function (_) {    return _.scoreAway;}(match)))))]))
+              ,A2($Html.td,_U.list([]),_U.list([$Html.text(winOrDrawPoints(match))]))
               ,A2($Html.td,
               _U.list([]),
               _U.list([$Html.text(maybeIntToString(function (_) {    return _.goals;}(function (_) {    return _.pointBreakdown;}(match))))]))
@@ -11272,13 +11069,12 @@ Elm.View.make = function (_elm) {
    _U.list([]),
    _U.list([A2($Html.tr,
    _U.list([]),
-   _U.list([A2($Html.th,_U.list([]),_U.list([$Html.text("Home")]))
-           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Away")]))
-           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Win")]))
-           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Draw")]))
-           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Goals")]))
-           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Clean sheet")]))
-           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Bonus")]))]))]));
+   _U.list([A2($Html.th,_U.list([]),_U.list([$Html.text("Match")]))
+           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Score")]))
+           ,A2($Html.th,_U.list([]),_U.list([$Html.text("Win/Draw")]))
+           ,A2($Html.th,_U.list([]),_U.list([$Html.text("G")]))
+           ,A2($Html.th,_U.list([]),_U.list([$Html.text("0")]))
+           ,A2($Html.th,_U.list([]),_U.list([$Html.text("B")]))]))]));
    var matchTable = function (matches) {
       return A2($Html.table,_U.list([$Html$Attributes.$class("pure-table")]),_U.list([headerRow,A2($Html.tbody,_U.list([]),A2($List.map,matchRow,matches))]));
    };
@@ -11327,6 +11123,7 @@ Elm.View.make = function (_elm) {
                              ,matchTable: matchTable
                              ,headerRow: headerRow
                              ,matchRow: matchRow
+                             ,winOrDrawPoints: winOrDrawPoints
                              ,maybeIntToString: maybeIntToString};
 };
 Elm.App = Elm.App || {};

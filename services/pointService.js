@@ -27,8 +27,9 @@ function getMatchBonusForTeam(match, teamId) {
   }
 };
 
-function getPointsForTeam(teamId, teamMatches, coefficient) {
-  return _(teamMatches)
+function getPointsForTeam(teamId, matches, coefficient) {
+  return _(matches)
+            .filter((match) => match.team1 == teamId || match.team2 == teamId)
             .filter((match) => match.status != "TIMED")
             .map(_.curry(getPointBreakdownForTeam)(teamId))
             .reduce(function(total, pb) {

@@ -11,7 +11,7 @@ let api;
 describe('overall', function() {
   beforeEach(function() {
     api = nock('http://api.football-data.org/v1')
-      .get('/soccerseasons/406/fixtures')
+      .get('/soccerseasons/424/fixtures')
       .reply(200, fs.readFileSync("test/matches.json", "UTF-8"));
   });
 
@@ -19,7 +19,7 @@ describe('overall', function() {
     footballDataService.getMatches()
       .then(function(matches) {
         let points = pointService.getPointsForTeam(759, matches, 1.02);
-        expect(points).to.equal(294);
+        expect(points).to.equal(293);
         done();
       }).catch(function(err) {
         done(new Error(err));

@@ -1,7 +1,6 @@
 module Model (..) where
 
 import Http
-import Date
 
 
 type Action
@@ -33,7 +32,8 @@ type alias Team =
 type alias Match =
   { homeTeam : String
   , awayTeam : String
-  , date : Date.Date
+  , scoreHome : Maybe Int
+  , scoreAway : Maybe Int
   , pointBreakdown : MatchPointBreakdown
   }
 

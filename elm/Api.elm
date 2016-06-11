@@ -4,7 +4,6 @@ import Model exposing (..)
 import Http exposing (Error)
 import Task exposing (Task)
 import Json.Decode as Json exposing (..)
-import Json.Decode.Extra exposing (..)
 
 
 getParticipants : List Participant
@@ -48,11 +47,12 @@ matchListDecoder =
 
 matchDecoder : Json.Decoder Match
 matchDecoder =
-  object4
+  object5
     Match
     ("team1name" := string)
     ("team2name" := string)
-    ("date" := date)
+    ("score1" := maybe int)
+    ("score2" := maybe int)
     ("pointBreakdown" := pointBreakdownDecoder)
 
 
