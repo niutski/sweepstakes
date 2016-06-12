@@ -19,7 +19,7 @@ describe('overall', function() {
     footballDataService.getMatches()
       .then(function(matches) {
         let points = pointService.getPointsForTeam(759, matches, 1.02);
-        expect(points).to.equal(293);
+        expect(points).to.equal(294);
         done();
       }).catch(function(err) {
         done(new Error(err));
