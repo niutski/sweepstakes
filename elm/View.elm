@@ -73,13 +73,13 @@ matchRow : Match -> Html
 matchRow match =
   tr
     []
-    [ th [] [ text ((match |> .homeTeam) ++ " - " ++ (match |> .awayTeam)) ]
+    [ td [ attribute "data-label" "Match" ] [ text ((match |> .homeTeam) ++ " - " ++ (match |> .awayTeam)) ]
       -- , td [] [ text (match |> .awayTeam) ]
-    , td [] [ text ((match |> .scoreHome |> maybeIntToString) ++ "-" ++ (match |> .scoreAway |> maybeIntToString)) ]
-    , td [] [ text (match |> .pointBreakdown |> .winOrDraw |> maybeIntToString) ]
-    , td [] [ text (match |> .pointBreakdown |> .goals |> maybeIntToString) ]
-    , td [] [ text (match |> .pointBreakdown |> .cleanSheet |> maybeIntToString) ]
-    , td [] [ text (match |> .pointBreakdown |> .bonus |> maybeIntToString) ]
+    , td [ attribute "data-label" "Score" ] [ text ((match |> .scoreHome |> maybeIntToString) ++ "-" ++ (match |> .scoreAway |> maybeIntToString)) ]
+    , td [ attribute "data-label" "Win/Draw" ] [ text (match |> .pointBreakdown |> .winOrDraw |> maybeIntToString) ]
+    , td [ attribute "data-label" "Goals" ] [ text (match |> .pointBreakdown |> .goals |> maybeIntToString) ]
+    , td [ attribute "data-label" "Clean Sheet" ] [ text (match |> .pointBreakdown |> .cleanSheet |> maybeIntToString) ]
+    , td [ attribute "data-label" "Bonus" ] [ text (match |> .pointBreakdown |> .bonus |> maybeIntToString) ]
     ]
 
 
@@ -90,4 +90,4 @@ maybeIntToString m =
       toString x
 
     Nothing ->
-      ""
+      "\xA0"

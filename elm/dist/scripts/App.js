@@ -11024,33 +11024,33 @@ Elm.View.make = function (_elm) {
    $Result = Elm.Result.make(_elm),
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
-   var maybeIntToString = function (m) {    var _p0 = m;if (_p0.ctor === "Just") {    return $Basics.toString(_p0._0);} else {    return "";}};
+   var maybeIntToString = function (m) {    var _p0 = m;if (_p0.ctor === "Just") {    return $Basics.toString(_p0._0);} else {    return " ";}};
    var matchRow = function (match) {
       return A2($Html.tr,
       _U.list([]),
-      _U.list([A2($Html.th,
-              _U.list([]),
+      _U.list([A2($Html.td,
+              _U.list([A2($Html$Attributes.attribute,"data-label","Match")]),
               _U.list([$Html.text(A2($Basics._op["++"],
               function (_) {
                  return _.homeTeam;
               }(match),
               A2($Basics._op["++"]," - ",function (_) {    return _.awayTeam;}(match))))]))
               ,A2($Html.td,
-              _U.list([]),
+              _U.list([A2($Html$Attributes.attribute,"data-label","Score")]),
               _U.list([$Html.text(A2($Basics._op["++"],
               maybeIntToString(function (_) {    return _.scoreHome;}(match)),
               A2($Basics._op["++"],"-",maybeIntToString(function (_) {    return _.scoreAway;}(match)))))]))
               ,A2($Html.td,
-              _U.list([]),
+              _U.list([A2($Html$Attributes.attribute,"data-label","Win/Draw")]),
               _U.list([$Html.text(maybeIntToString(function (_) {    return _.winOrDraw;}(function (_) {    return _.pointBreakdown;}(match))))]))
               ,A2($Html.td,
-              _U.list([]),
+              _U.list([A2($Html$Attributes.attribute,"data-label","Goals")]),
               _U.list([$Html.text(maybeIntToString(function (_) {    return _.goals;}(function (_) {    return _.pointBreakdown;}(match))))]))
               ,A2($Html.td,
-              _U.list([]),
+              _U.list([A2($Html$Attributes.attribute,"data-label","Clean Sheet")]),
               _U.list([$Html.text(maybeIntToString(function (_) {    return _.cleanSheet;}(function (_) {    return _.pointBreakdown;}(match))))]))
               ,A2($Html.td,
-              _U.list([]),
+              _U.list([A2($Html$Attributes.attribute,"data-label","Bonus")]),
               _U.list([$Html.text(maybeIntToString(function (_) {    return _.bonus;}(function (_) {    return _.pointBreakdown;}(match))))]))]));
    };
    var headerRow = A2($Html.thead,
