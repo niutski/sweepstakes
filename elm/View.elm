@@ -76,26 +76,11 @@ matchRow match =
     [ th [] [ text ((match |> .homeTeam) ++ " - " ++ (match |> .awayTeam)) ]
       -- , td [] [ text (match |> .awayTeam) ]
     , td [] [ text ((match |> .scoreHome |> maybeIntToString) ++ "-" ++ (match |> .scoreAway |> maybeIntToString)) ]
-    , td [] [ text (winOrDrawPoints match) ]
+    , td [] [ text (match |> .pointBreakdown |> .winOrDraw |> maybeIntToString) ]
     , td [] [ text (match |> .pointBreakdown |> .goals |> maybeIntToString) ]
     , td [] [ text (match |> .pointBreakdown |> .cleanSheet |> maybeIntToString) ]
     , td [] [ text (match |> .pointBreakdown |> .bonus |> maybeIntToString) ]
     ]
-
-
-winOrDrawPoints : Match -> String
-winOrDrawPoints match =
-  case (match |> .pointBreakdown |> .win) of
-    Just x ->
-      toString x
-
-    Nothing ->
-      case (match |> .pointBreakdown |> .draw) of
-        Just x ->
-          toString x
-
-        Nothing ->
-          "0"
 
 
 maybeIntToString : Maybe Int -> String

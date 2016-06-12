@@ -10931,7 +10931,7 @@ Elm.Model.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
    var toTeam = function (maybe) {    return A2($Maybe.withDefault,{name: "",id: 0,points: 0,code: "zz",matches: _U.list([])},maybe);};
-   var MatchPointBreakdown = F5(function (a,b,c,d,e) {    return {win: a,draw: b,cleanSheet: c,goals: d,bonus: e};});
+   var MatchPointBreakdown = F4(function (a,b,c,d) {    return {winOrDraw: a,cleanSheet: b,goals: c,bonus: d};});
    var Match = F5(function (a,b,c,d,e) {    return {homeTeam: a,awayTeam: b,scoreHome: c,scoreAway: d,pointBreakdown: e};});
    var Team = F5(function (a,b,c,d,e) {    return {id: a,name: b,points: c,code: d,matches: e};});
    var Participant = F4(function (a,b,c,d) {    return {name: a,teamId: b,team: c,teamRank: d};});
@@ -10963,10 +10963,9 @@ Elm.Api.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm),
    $Task = Elm.Task.make(_elm);
    var _op = {};
-   var pointBreakdownDecoder = A6($Json$Decode.object5,
+   var pointBreakdownDecoder = A5($Json$Decode.object4,
    $Model.MatchPointBreakdown,
-   A2($Json$Decode._op[":="],"win",$Json$Decode.maybe($Json$Decode.$int)),
-   A2($Json$Decode._op[":="],"draw",$Json$Decode.maybe($Json$Decode.$int)),
+   A2($Json$Decode._op[":="],"winOrDraw",$Json$Decode.maybe($Json$Decode.$int)),
    A2($Json$Decode._op[":="],"cleanSheet",$Json$Decode.maybe($Json$Decode.$int)),
    A2($Json$Decode._op[":="],"goals",$Json$Decode.maybe($Json$Decode.$int)),
    A2($Json$Decode._op[":="],"bonus",$Json$Decode.maybe($Json$Decode.$int)));
@@ -11026,19 +11025,6 @@ Elm.View.make = function (_elm) {
    $Signal = Elm.Signal.make(_elm);
    var _op = {};
    var maybeIntToString = function (m) {    var _p0 = m;if (_p0.ctor === "Just") {    return $Basics.toString(_p0._0);} else {    return "";}};
-   var winOrDrawPoints = function (match) {
-      var _p1 = function (_) {    return _.win;}(function (_) {    return _.pointBreakdown;}(match));
-      if (_p1.ctor === "Just") {
-            return $Basics.toString(_p1._0);
-         } else {
-            var _p2 = function (_) {    return _.draw;}(function (_) {    return _.pointBreakdown;}(match));
-            if (_p2.ctor === "Just") {
-                  return $Basics.toString(_p2._0);
-               } else {
-                  return "0";
-               }
-         }
-   };
    var matchRow = function (match) {
       return A2($Html.tr,
       _U.list([]),
@@ -11054,7 +11040,9 @@ Elm.View.make = function (_elm) {
               _U.list([$Html.text(A2($Basics._op["++"],
               maybeIntToString(function (_) {    return _.scoreHome;}(match)),
               A2($Basics._op["++"],"-",maybeIntToString(function (_) {    return _.scoreAway;}(match)))))]))
-              ,A2($Html.td,_U.list([]),_U.list([$Html.text(winOrDrawPoints(match))]))
+              ,A2($Html.td,
+              _U.list([]),
+              _U.list([$Html.text(maybeIntToString(function (_) {    return _.winOrDraw;}(function (_) {    return _.pointBreakdown;}(match))))]))
               ,A2($Html.td,
               _U.list([]),
               _U.list([$Html.text(maybeIntToString(function (_) {    return _.goals;}(function (_) {    return _.pointBreakdown;}(match))))]))
@@ -11123,7 +11111,6 @@ Elm.View.make = function (_elm) {
                              ,matchTable: matchTable
                              ,headerRow: headerRow
                              ,matchRow: matchRow
-                             ,winOrDrawPoints: winOrDrawPoints
                              ,maybeIntToString: maybeIntToString};
 };
 Elm.App = Elm.App || {};

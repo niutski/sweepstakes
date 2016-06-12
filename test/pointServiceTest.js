@@ -19,8 +19,7 @@ describe('Point service', function() {
 
   it('should detect draw and clean sheet for team 1', function() {
     let breakdown = pointService.getPointBreakdownForTeam(1, match)
-    expect(breakdown.win).to.equal(0);
-    expect(breakdown.draw).to.equal(7);
+    expect(breakdown.winOrDraw).to.equal(7);
     expect(breakdown.goals).to.equal(0);
     expect(breakdown.cleanSheet).to.equal(5);
     expect(breakdown.bonus).to.equal(0);
@@ -33,8 +32,7 @@ describe('Point service', function() {
 
     let breakdown = pointService.getPointBreakdownForTeam(2, match)
 
-    expect(breakdown.win).to.equal(15);
-    expect(breakdown.draw).to.equal(0);
+    expect(breakdown.winOrDraw).to.equal(15);
     expect(breakdown.goals).to.equal(6);
     expect(breakdown.cleanSheet).to.equal(0);
     expect(breakdown.bonus).to.equal(0);
@@ -46,8 +44,7 @@ describe('Point service', function() {
 
     let breakdown = pointService.getPointBreakdownForTeam(2, match);
 
-    expect(breakdown.win).to.equal(0);
-    expect(breakdown.draw).to.equal(0);
+    expect(breakdown.winOrDraw).to.equal(0);
     expect(breakdown.goals).to.equal(0);
     expect(breakdown.cleanSheet).to.equal(0);
     expect(breakdown.bonus).to.equal(0);

@@ -39,8 +39,7 @@ type alias Match =
 
 
 type alias MatchPointBreakdown =
-  { win : Maybe Int
-  , draw : Maybe Int
+  { winOrDraw : Maybe Int
   , cleanSheet : Maybe Int
   , goals : Maybe Int
   , bonus : Maybe Int

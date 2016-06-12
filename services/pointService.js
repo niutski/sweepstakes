@@ -34,15 +34,14 @@ function getPointsForTeam(teamId, matches, coefficient) {
             .map(_.curry(getPointBreakdownForTeam)(teamId))
             .reduce(function(total, pb) {
                 return total +
-                  Math.round((pb.win + pb.draw + pb.goals + pb.cleanSheet) * coefficient) + pb.bonus;
+                  Math.round((pb.winOrDraw + pb.goals + pb.cleanSheet) * coefficient) + pb.bonus;
               }, 0);
 };
 
 function getPointBreakdownForTeam(teamId, match) {
-  if (match.status == "TIMED") return {win:null, draw:null, goals:null, cleanSheet:null, bonus:null};
+  if (match.status == "TIMED") return {winOrDraw:null, goals:null, cleanSheet:null, bonus:null};
   return {
-    win: match.winner == teamId ? Points.WIN : 0,
-    draw: match.winner == 0 ? Points.DRAW : 0,
+    winOrDraw: match.winner == teamId ? Points.WIN : (match.winner == 0 ? Points.DRAW : 0),
     goals: (teamId == match.team1 ? match.score1 : match.score2) * Points.GOAL,
     cleanSheet: getCleanSheetPoints(match, teamId),
     bonus: getMatchBonusForTeam(match, teamId)

@@ -58,10 +58,9 @@ matchDecoder =
 
 pointBreakdownDecoder : Json.Decoder MatchPointBreakdown
 pointBreakdownDecoder =
-  object5
+  object4
     MatchPointBreakdown
-    ("win" := maybe int)
-    ("draw" := maybe int)
+    ("winOrDraw" := maybe int)
     ("cleanSheet" := maybe int)
     ("goals" := maybe int)
     ("bonus" := maybe int)
