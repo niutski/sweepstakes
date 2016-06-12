@@ -15,7 +15,7 @@ view address model =
 participantToHtml : Participant -> Html
 participantToHtml participant =
   div
-    [ class "pure-u-1 pure-u-md-1 pure-u-lg-1-2" ]
+    [ class "pure-u-1 pure-u-md-1 pure-u-lg-1-2 pure-u-xl-1-3" ]
     [ div
         [ class "participant-card" ]
         [ div

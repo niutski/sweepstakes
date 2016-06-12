@@ -11082,7 +11082,7 @@ Elm.View.make = function (_elm) {
    };
    var participantToHtml = function (participant) {
       return A2($Html.div,
-      _U.list([$Html$Attributes.$class("pure-u-1 pure-u-md-1 pure-u-lg-1-2")]),
+      _U.list([$Html$Attributes.$class("pure-u-1 pure-u-md-1 pure-u-lg-1-2 pure-u-xl-1-3")]),
       _U.list([A2($Html.div,
       _U.list([$Html$Attributes.$class("participant-card")]),
       _U.list([A2($Html.div,
