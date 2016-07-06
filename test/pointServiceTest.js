@@ -57,4 +57,14 @@ describe('Point service', function() {
     expect(pointService.getPointBreakdownForTeam(1, match).bonus).to.equal(20);
     expect(pointService.getPointBreakdownForTeam(2, match).bonus).to.equal(40);
   });
+
+  it('should detect playoff stage penalty shootout win', function() {
+    match.matchType = "QUARTER_FINAL";
+    match.score1 = 1;
+    match.score2 = 1;
+    match.winner = 1;
+    let breakdown = pointService.getPointBreakdownForTeam(1, match);
+    expect(breakdown.winOrDraw).to.equal(7);
+    expect(breakdown.bonus).to.equal(20);
+  })
 });

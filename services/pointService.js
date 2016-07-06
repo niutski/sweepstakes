@@ -40,10 +40,16 @@ function getPointsForTeam(teamId, matches, coefficient) {
               }, 0));
 };
 
+function getMatchResultPoints(teamId, match) {
+  if (match.score1 == match.score2) return Points.DRAW;
+  if (match.score1 > match.score2) return teamId == match.team1 ? Points.WIN : 0;
+  return teamId == match.team1 ? 0 : Points.WIN;
+};
+
 function getPointBreakdownForTeam(teamId, match) {
   if (match.status == "TIMED") return {winOrDraw:null, goals:null, cleanSheet:null, bonus:null};
   return {
-    winOrDraw: match.winner == teamId ? Points.WIN : (match.winner == 0 ? Points.DRAW : 0),
+    winOrDraw: getMatchResultPoints(teamId, match),
     goals: (teamId == match.team1 ? match.score1 : match.score2) * Points.GOAL,
     cleanSheet: getCleanSheetPoints(match, teamId),
     bonus: getMatchBonusForTeam(match, teamId)
